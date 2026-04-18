@@ -76,27 +76,67 @@ def generate_slug(name: str) -> str:
 
 # --- MOCK AI REVIEW GENERATION ---
 REVIEW_TEMPLATES = {
-    "hotel": [
-        "Absolutely loved my stay at {name}! The rooms were spotless and the staff went above and beyond to make us feel welcome. The location is perfect for exploring the area. Would definitely recommend to anyone looking for a comfortable stay.",
-        "What a wonderful experience at {name}. From the moment we checked in, everything was seamless. The amenities were top-notch and the breakfast spread was incredible. Can't wait to come back!",
-        "Had an amazing time at {name}. The ambiance is so relaxing and the room service was prompt and delicious. Perfect place for a weekend getaway. Five stars all the way!",
-        "{name} exceeded all my expectations. The attention to detail in every aspect of our stay was remarkable. The pool area is gorgeous and the concierge helped us plan the perfect itinerary.",
-        "Stayed at {name} for our anniversary and it was absolutely perfect. The room had a beautiful view, the bed was incredibly comfortable, and the restaurant downstairs served some of the best food we've ever had.",
-        "I've stayed at many hotels but {name} stands out. The cleanliness, the friendly staff, and the overall vibe make it a must-visit. Already planning my next trip here!",
-    ],
-    "restaurant": [
-        "The food at {name} is absolutely divine! Every dish was bursting with flavor and the presentation was beautiful. The service was attentive without being intrusive. A must-visit!",
-        "Had dinner at {name} last night and I'm still thinking about it. The menu is creative, the portions are generous, and the atmosphere is perfect for a special night out. Highly recommend!",
-        "Best dining experience in town! {name} never disappoints. The chef clearly puts passion into every plate. The appetizers were as impressive as the mains. Will be back soon!",
-        "{name} has become our go-to spot for family dinners. The variety on the menu means everyone finds something they love. Great value for money and always consistent quality.",
-        "Visited {name} on a friend's recommendation and wow, what a gem! The ambiance is warm and inviting, the staff is super friendly, and the food is out of this world. Don't miss the desserts!",
-        "If you're looking for an unforgettable meal, {name} is the place. Fresh ingredients, creative recipes, and an atmosphere that makes you want to linger. Top marks across the board!",
-    ],
+    "hotel": {
+        "casual": [
+            "Honestly, {name} was such a vibe! Super clean rooms, chill staff, and the location? Perfect for wandering around. Would totally stay again.",
+            "Just got back from {name} and wow, I'm already missing it. Bed was like sleeping on a cloud. Breakfast had so many options I couldn't decide. 10/10.",
+            "Spent the weekend at {name} and it was exactly what I needed. Easy check-in, comfy room, great pool area. Nothing fancy, just done really well.",
+            "If you're looking for a no-hassle stay, {name} is it. Super friendly people, everything was clean, and the vibe was just right. Already booked my next trip!",
+            "Loved {name}! The room was cozy, the view was gorgeous, and there's a great restaurant right downstairs. It felt like a mini vacation even on a work trip.",
+            "{name} surprised me honestly. Didn't expect much but the rooms were spotless, staff remembered my name by day two, and the whole place just felt welcoming.",
+        ],
+        "formal": [
+            "I had the privilege of staying at {name} recently, and the experience was truly exemplary. The accommodations were impeccably maintained, the staff demonstrated exceptional professionalism, and the amenities exceeded my expectations in every regard.",
+            "{name} represents the gold standard in hospitality. From the seamless check-in process to the meticulously appointed rooms, every detail has been thoughtfully considered. I would unreservedly recommend this establishment to discerning travelers.",
+            "During my recent visit to {name}, I was thoroughly impressed by the caliber of service and attention to detail. The property is beautifully maintained, the dining options are of superior quality, and the overall experience was one of refined comfort.",
+            "It is with great pleasure that I commend {name} for an outstanding stay. The facilities are modern and well-maintained, the concierge team was exceptionally helpful, and the establishment upholds the highest standards of cleanliness and hospitality.",
+            "Having traveled extensively, I can confidently state that {name} ranks among the finest accommodations I have experienced. The elegance of the property, combined with the attentive service, creates an environment of unparalleled comfort and distinction.",
+            "{name} delivered an experience that was nothing short of exceptional. The room appointments were of the highest quality, the staff conducted themselves with admirable courtesy, and every aspect of my stay reflected a commitment to excellence.",
+        ],
+        "enthusiastic": [
+            "OMG {name} is AMAZING!! The rooms are absolutely gorgeous, the staff are the sweetest people ever, and I literally did not want to leave! This is THE place to stay!! You HAVE to try it! ★★★★★",
+            "I am OBSESSED with {name}!!! Everything from the lobby to the room to the rooftop was STUNNING. The breakfast spread was INSANE — like a dream come true! Best hotel experience of my LIFE!",
+            "WOW WOW WOW!! {name} blew my mind!! The pool is incredible, the bed is heavenly, and the service is next-level amazing! I've already told ALL my friends they need to book here ASAP!",
+            "{name} is a total GEM!! I was smiling the entire stay — the room was perfect, the views were breathtaking, and the team made me feel like a VIP! Cannot WAIT to come back!!",
+            "If I could give {name} 10 stars I WOULD!! Every single thing was perfect — the spotless rooms, the amazing food, the incredible staff! This hotel has completely won my heart! ABSOLUTELY LOVED IT!",
+            "HANDS DOWN the best hotel I've EVER stayed at!! {name} is pure magic — the ambiance, the comfort, the attention to detail! I'm literally counting down the days until I can go back!!",
+        ],
+    },
+    "restaurant": {
+        "casual": [
+            "The food at {name} is seriously good. Went with a few friends and everyone loved what they ordered. Nothing too fussy, just really tasty food and a nice relaxed vibe.",
+            "Had dinner at {name} and I'm still thinking about it. Great portions, fresh ingredients, and the dessert was next level. Definitely coming back soon.",
+            "{name} is our new favorite spot. Good food, friendly staff, fair prices — what more do you need? We've been back three times already and it never disappoints.",
+            "Dropped by {name} on a whim and so glad we did. The menu has something for everyone, the atmosphere is chill, and the food came out fast. Super solid all around.",
+            "If you haven't tried {name} yet, you're missing out. We ordered the specials and they were incredible. The kind of place where you just feel at home. Love it.",
+            "Went to {name} for a birthday dinner and it was perfect. Great food, great service, and they even surprised us with a little something extra. Really nice touch.",
+        ],
+        "formal": [
+            "Dining at {name} was an exemplary culinary experience. Each course was prepared with evident skill and presented with artistic precision. The service was refined and attentive, befitting an establishment of this caliber.",
+            "I am pleased to recommend {name} as a dining destination of the highest order. The menu demonstrates a masterful understanding of flavor profiles, and the ambiance is both sophisticated and welcoming. A truly distinguished restaurant.",
+            "{name} consistently delivers an exceptional dining experience. The quality of ingredients is superb, the execution is flawless, and the sommelier's recommendations were impeccable. It is a credit to the culinary landscape of this area.",
+            "Having dined at numerous acclaimed restaurants, I can attest that {name} stands apart. The attention to detail in every dish, the gracious service, and the refined atmosphere combine to create an experience of the highest distinction.",
+            "It was a genuine pleasure to dine at {name}. The cuisine was of outstanding quality, the presentation was immaculate, and the staff demonstrated a level of professionalism that is increasingly rare. Most highly recommended.",
+            "{name} has established itself as a benchmark for culinary excellence. From the carefully curated menu to the elegant dining environment, every element reflects a commitment to providing guests with a truly memorable experience.",
+        ],
+        "enthusiastic": [
+            "The food at {name} is absolutely DIVINE!! Every single dish was bursting with flavor and the presentation was GORGEOUS! The service was incredible — this is a MUST-VISIT!! I'm telling EVERYONE!",
+            "OH MY GOODNESS!! {name} is hands down the BEST restaurant I've ever been to!! The menu is creative, the portions are generous, and the atmosphere is PERFECT! I'm already planning my next visit!!",
+            "BEST. DINING. EXPERIENCE. EVER!! {name} knocked it out of the park! The appetizers were AMAZING, the mains were SPECTACULAR, and don't even get me started on dessert!! INCREDIBLE!!",
+            "{name} has completely STOLEN my heart!! The chef is an absolute GENIUS — every bite was like a flavor explosion! The staff was SO friendly and the whole vibe was just WONDERFUL! 11/10!!",
+            "I literally CANNOT stop raving about {name}!! Went for dinner and it was the most MAGICAL meal! Fresh ingredients, creative recipes, and an atmosphere that made us want to stay forever!! ABSOLUTELY PERFECT!",
+            "If you're looking for an UNFORGETTABLE meal, RUN don't walk to {name}!! The food is out of this WORLD, the service is top-notch, and the prices are totally fair! My new ALL-TIME FAVORITE restaurant!!",
+        ],
+    },
 }
 
-def generate_reviews_for_place(name: str, category: str) -> list:
+VALID_TONES = ["casual", "formal", "enthusiastic"]
+
+def generate_reviews_for_place(name: str, category: str, tone: str = "casual") -> list:
     cat_key = category.lower()
-    templates = REVIEW_TEMPLATES.get(cat_key, REVIEW_TEMPLATES["restaurant"])
+    tone_key = tone.lower() if tone and tone.lower() in VALID_TONES else "casual"
+    cat_templates = REVIEW_TEMPLATES.get(cat_key, REVIEW_TEMPLATES["restaurant"])
+    templates = cat_templates.get(tone_key, cat_templates["casual"])
     selected = random.sample(templates, min(5, len(templates)))
     reviews = []
     for t in selected:
@@ -104,6 +144,7 @@ def generate_reviews_for_place(name: str, category: str) -> list:
         reviews.append({
             "text": t.format(name=name),
             "rating": rating,
+            "tone": tone_key,
             "generated_at": datetime.now(timezone.utc).isoformat()
         })
     return reviews
@@ -120,6 +161,7 @@ class PlaceCreate(BaseModel):
     address: Optional[str] = ""
     google_review_url: str
     image_url: Optional[str] = ""
+    tone: Optional[str] = "casual"
 
 class PlaceUpdate(BaseModel):
     name: Optional[str] = None
@@ -128,6 +170,10 @@ class PlaceUpdate(BaseModel):
     address: Optional[str] = None
     google_review_url: Optional[str] = None
     image_url: Optional[str] = None
+    tone: Optional[str] = None
+
+class RegenerateRequest(BaseModel):
+    tone: Optional[str] = None
 
 # --- AUTH ROUTES ---
 @api_router.post("/auth/login")
@@ -159,7 +205,8 @@ async def logout(response: Response):
 async def create_place(place: PlaceCreate, request: Request):
     user = await get_current_user(request)
     slug = generate_slug(place.name)
-    reviews = generate_reviews_for_place(place.name, place.category)
+    tone = place.tone if place.tone and place.tone in VALID_TONES else "casual"
+    reviews = generate_reviews_for_place(place.name, place.category, tone)
     doc = {
         "name": place.name,
         "category": place.category,
@@ -168,6 +215,7 @@ async def create_place(place: PlaceCreate, request: Request):
         "google_review_url": place.google_review_url,
         "image_url": place.image_url,
         "slug": slug,
+        "tone": tone,
         "reviews": reviews,
         "total_scans": 0,
         "total_copies": 0,
@@ -183,7 +231,7 @@ async def create_place(place: PlaceCreate, request: Request):
 @api_router.get("/places")
 async def list_places(request: Request):
     user = await get_current_user(request)
-    places = await db.places.find({}, {"_id": 1, "name": 1, "category": 1, "slug": 1, "total_scans": 1, "total_copies": 1, "google_review_url": 1, "image_url": 1, "address": 1, "description": 1, "created_at": 1}).to_list(1000)
+    places = await db.places.find({}, {"_id": 1, "name": 1, "category": 1, "slug": 1, "total_scans": 1, "total_copies": 1, "google_review_url": 1, "image_url": 1, "address": 1, "description": 1, "tone": 1, "created_at": 1}).to_list(1000)
     for p in places:
         p["id"] = str(p.pop("_id"))
     return places
@@ -220,14 +268,15 @@ async def delete_place(place_id: str, request: Request):
     return {"message": "Place deleted"}
 
 @api_router.post("/places/{place_id}/regenerate-reviews")
-async def regenerate_reviews(place_id: str, request: Request):
+async def regenerate_reviews(place_id: str, body: RegenerateRequest, request: Request):
     user = await get_current_user(request)
     place = await db.places.find_one({"_id": ObjectId(place_id)})
     if not place:
         raise HTTPException(status_code=404, detail="Place not found")
-    reviews = generate_reviews_for_place(place["name"], place["category"])
-    await db.places.update_one({"_id": ObjectId(place_id)}, {"$set": {"reviews": reviews, "updated_at": datetime.now(timezone.utc).isoformat()}})
-    return {"reviews": reviews}
+    tone = body.tone if body.tone and body.tone in VALID_TONES else place.get("tone", "casual")
+    reviews = generate_reviews_for_place(place["name"], place["category"], tone)
+    await db.places.update_one({"_id": ObjectId(place_id)}, {"$set": {"reviews": reviews, "tone": tone, "updated_at": datetime.now(timezone.utc).isoformat()}})
+    return {"reviews": reviews, "tone": tone}
 
 # --- PUBLIC ROUTES (no auth needed) ---
 @api_router.get("/public/place/{slug}")

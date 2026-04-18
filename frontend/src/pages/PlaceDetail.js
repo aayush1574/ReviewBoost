@@ -3,12 +3,19 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 import axios from 'axios';
 import { QRCodeSVG } from 'qrcode.react';
-import { ArrowLeft, Star, RefreshCw, QrCode, Copy, ExternalLink, Download, Trash2, Settings } from 'lucide-react';
+import { ArrowLeft, Star, RefreshCw, QrCode, Copy, ExternalLink, Download, Trash2, Settings, Sparkles } from 'lucide-react';
 import { Input } from '../components/ui/input';
 import { Label } from '../components/ui/label';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '../components/ui/tabs';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../components/ui/select';
 
 const API = `${process.env.REACT_APP_BACKEND_URL}/api`;
+
+const TONE_LABELS = {
+  casual: { label: "Casual", desc: "Friendly & relaxed", color: "#FFD54F" },
+  formal: { label: "Formal", desc: "Professional & polished", color: "#A7F3D0" },
+  enthusiastic: { label: "Enthusiastic", desc: "Energetic & exciting", color: "#FF5722" },
+};
 
 export default function PlaceDetail() {
   const { id } = useParams();
@@ -17,6 +24,7 @@ export default function PlaceDetail() {
   const [place, setPlace] = useState(null);
   const [loading, setLoading] = useState(true);
   const [regenerating, setRegenerating] = useState(false);
+  const [selectedTone, setSelectedTone] = useState('');
   const qrRef = useRef(null);
 
   const qrUrl = place ? `${window.location.origin}/r/${place.slug}` : '';
@@ -29,17 +37,19 @@ export default function PlaceDetail() {
     try {
       const { data } = await axios.get(`${API}/places/${id}`, { headers: getHeaders(), withCredentials: true });
       setPlace(data);
+      setSelectedTone(data.tone || 'casual');
     } catch {
       navigate('/admin/places');
     }
     setLoading(false);
   };
 
-  const regenerateReviews = async () => {
+  const regenerateReviews = async (tone) => {
     setRegenerating(true);
     try {
-      const { data } = await axios.post(`${API}/places/${id}/regenerate-reviews`, {}, { headers: getHeaders(), withCredentials: true });
-      setPlace(prev => ({ ...prev, reviews: data.reviews }));
+      const { data } = await axios.post(`${API}/places/${id}/regenerate-reviews`, { tone: tone || selectedTone }, { headers: getHeaders(), withCredentials: true });
+      setPlace(prev => ({ ...prev, reviews: data.reviews, tone: data.tone }));
+      setSelectedTone(data.tone);
     } catch {
       alert('Failed to regenerate reviews');
     }
@@ -177,18 +187,48 @@ export default function PlaceDetail() {
 
           <TabsContent value="reviews">
             <div className="space-y-4">
-              <div className="flex items-center justify-between">
-                <h2 className="font-['Outfit'] font-bold text-xl">Generated Reviews</h2>
-                <button
-                  data-testid="regenerate-reviews-btn"
-                  onClick={regenerateReviews}
-                  disabled={regenerating}
-                  className="bg-[#FFD54F] text-slate-900 border-2 border-slate-900 rounded-xl px-4 py-2 font-semibold neo-shadow-sm hover:-translate-y-0.5 transition-all font-['Work_Sans'] flex items-center gap-2 text-sm disabled:opacity-60"
-                >
-                  <RefreshCw className={`w-4 h-4 ${regenerating ? 'animate-spin' : ''}`} strokeWidth={2.5} />
-                  Regenerate
-                </button>
+              {/* Tone Selector */}
+              <div className="bg-white border-2 border-slate-900 rounded-xl p-5 neo-shadow-sm">
+                <div className="flex items-center gap-2 mb-3">
+                  <Sparkles className="w-5 h-5 text-[#FF5722]" strokeWidth={2.5} />
+                  <h3 className="font-['Outfit'] font-bold text-lg">Review Tone</h3>
+                </div>
+                <div className="grid grid-cols-3 gap-3 mb-4">
+                  {Object.entries(TONE_LABELS).map(([key, t]) => (
+                    <button
+                      key={key}
+                      data-testid={`tone-${key}-btn`}
+                      onClick={() => setSelectedTone(key)}
+                      className={`border-2 rounded-xl p-3 text-left transition-all font-['Work_Sans'] ${
+                        selectedTone === key
+                          ? 'border-slate-900 neo-shadow-sm'
+                          : 'border-slate-200 hover:border-slate-400'
+                      }`}
+                      style={selectedTone === key ? { borderTopColor: t.color, borderTopWidth: '4px' } : {}}
+                    >
+                      <div className="font-semibold text-sm text-slate-900">{t.label}</div>
+                      <div className="text-xs text-slate-500 mt-0.5">{t.desc}</div>
+                    </button>
+                  ))}
+                </div>
+                <div className="flex items-center justify-between">
+                  <div className="text-sm text-slate-500 font-['Work_Sans']">
+                    Current: <span className="font-semibold text-slate-900">{TONE_LABELS[place.tone || 'casual']?.label}</span>
+                  </div>
+                  <button
+                    data-testid="regenerate-reviews-btn"
+                    onClick={() => regenerateReviews(selectedTone)}
+                    disabled={regenerating}
+                    className="bg-[#FF5722] text-white border-2 border-slate-900 rounded-xl px-5 py-2.5 font-semibold neo-shadow-sm hover:-translate-y-0.5 transition-all font-['Work_Sans'] flex items-center gap-2 text-sm disabled:opacity-60"
+                  >
+                    <RefreshCw className={`w-4 h-4 ${regenerating ? 'animate-spin' : ''}`} strokeWidth={2.5} />
+                    {regenerating ? 'Generating...' : 'Generate Reviews'}
+                  </button>
+                </div>
               </div>
+
+              {/* Review Cards */}
+              <h2 className="font-['Outfit'] font-bold text-xl">Generated Reviews ({place.reviews?.length || 0})</h2>
               {place.reviews?.map((review, i) => (
                 <div key={i} className="bg-white border-2 border-slate-900 rounded-xl p-5 neo-shadow-sm">
                   <div className="flex items-center gap-1 mb-3">

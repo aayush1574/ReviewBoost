@@ -18,7 +18,7 @@ const PLACEHOLDER_IMAGES = {
 export default function AddPlace() {
   const { getHeaders } = useAuth();
   const navigate = useNavigate();
-  const [form, setForm] = useState({ name: '', category: 'restaurant', description: '', address: '', google_review_url: '', image_url: '' });
+  const [form, setForm] = useState({ name: '', category: 'restaurant', description: '', address: '', google_review_url: '', image_url: '', tone: 'casual' });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
 
@@ -120,6 +120,21 @@ export default function AddPlace() {
                 placeholder="e.g. 123 Main Street, City"
                 className="mt-1 border-2 border-slate-300 focus:border-[#FF5722] rounded-xl h-12 font-['Work_Sans']"
               />
+            </div>
+
+            <div>
+              <Label className="font-['Work_Sans'] font-semibold text-slate-900">Review Tone</Label>
+              <Select value={form.tone} onValueChange={(val) => setForm({ ...form, tone: val })}>
+                <SelectTrigger data-testid="place-tone-select" className="mt-1 border-2 border-slate-300 rounded-xl h-12 font-['Work_Sans']">
+                  <SelectValue />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="casual">Casual — Friendly & relaxed</SelectItem>
+                  <SelectItem value="formal">Formal — Professional & polished</SelectItem>
+                  <SelectItem value="enthusiastic">Enthusiastic — Energetic & exciting</SelectItem>
+                </SelectContent>
+              </Select>
+              <p className="text-xs text-slate-400 font-['Work_Sans'] mt-1">Choose the voice that matches your brand</p>
             </div>
 
             <div>

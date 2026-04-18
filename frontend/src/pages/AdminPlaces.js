@@ -118,6 +118,9 @@ export default function AdminPlaces() {
                 <div className="p-5">
                   <div className="flex items-center justify-between mb-2">
                     <span className="text-xs font-semibold font-['Work_Sans'] uppercase tracking-wider text-[#FF5722] bg-[#FF5722]/10 px-2 py-0.5 rounded-full">{place.category}</span>
+                    {place.tone && (
+                      <span className="text-xs font-medium font-['Work_Sans'] text-slate-500 bg-slate-100 px-2 py-0.5 rounded-full capitalize">{place.tone}</span>
+                    )}
                   </div>
                   <h3 className="font-['Outfit'] font-bold text-lg text-slate-900 mb-1">{place.name}</h3>
                   {place.address && <p className="text-sm text-slate-500 font-['Work_Sans'] mb-3">{place.address}</p>}

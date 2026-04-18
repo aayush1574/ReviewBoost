@@ -48,3 +48,10 @@ Build a website where admin can list places (hotels, restaurants) and generate Q
 - Review customization (tone, length)
 - Email notifications on milestones
 - Bulk place import (CSV)
+
+## Feature: Review Tone Selector (April 2026)
+- Added 3 tone options: Casual (friendly & relaxed), Formal (professional & polished), Enthusiastic (energetic & exciting)
+- 6 unique templates per tone per category (hotel/restaurant) = 36 total templates
+- Tone selector on Add Place form and Place Detail page
+- Regenerate reviews with different tone from the admin panel
+- Tone badge shown on place cards in the list view
