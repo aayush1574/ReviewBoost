@@ -2,10 +2,9 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 import axios from 'axios';
-import { Plus, QrCode, Copy, Star, Building2, ArrowLeft, Trash2, Settings, LogOut, ExternalLink } from 'lucide-react';
+import { Plus, QrCode, Copy, Star, Building2, ArrowLeft, Trash2, Settings, LogOut } from 'lucide-react';
 
 const API = `${process.env.REACT_APP_BACKEND_URL}/api`;
-const FRONTEND_URL = process.env.REACT_APP_BACKEND_URL?.replace('/api', '') || window.location.origin;
 
 export default function AdminPlaces() {
   const { getHeaders, logout } = useAuth();
