@@ -1,0 +1,164 @@
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../contexts/AuthContext';
+import axios from 'axios';
+import { ArrowLeft, Star, Save, Building2 } from 'lucide-react';
+import { Input } from '../components/ui/input';
+import { Label } from '../components/ui/label';
+import { Textarea } from '../components/ui/textarea';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../components/ui/select';
+
+const API = `${process.env.REACT_APP_BACKEND_URL}/api`;
+
+const PLACEHOLDER_IMAGES = {
+  hotel: "https://images.unsplash.com/photo-1723465308831-29da05e011f3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAxODF8MHwxfHNlYXJjaHwxfHxsdXh1cnklMjBob3RlbCUyMGZhY2FkZXxlbnwwfHx8fDE3NzY1MzYyMTB8MA&ixlib=rb-4.1.0&q=85",
+  restaurant: "https://images.unsplash.com/photo-1685040235380-a42a129ade4e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA2ODl8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjByZXN0YXVyYW50JTIwaW50ZXJpb3J8ZW58MHx8fHwxNzc2NTM2MjEwfDA&ixlib=rb-4.1.0&q=85",
+};
+
+export default function AddPlace() {
+  const { getHeaders } = useAuth();
+  const navigate = useNavigate();
+  const [form, setForm] = useState({ name: '', category: 'restaurant', description: '', address: '', google_review_url: '', image_url: '' });
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (!form.name || !form.google_review_url) {
+      setError('Name and Google Review URL are required');
+      return;
+    }
+    setLoading(true);
+    setError('');
+    try {
+      const payload = { ...form };
+      if (!payload.image_url) {
+        payload.image_url = PLACEHOLDER_IMAGES[form.category] || PLACEHOLDER_IMAGES.restaurant;
+      }
+      await axios.post(`${API}/places`, payload, { headers: getHeaders(), withCredentials: true });
+      navigate('/admin/places');
+    } catch (err) {
+      setError(err.response?.data?.detail || 'Failed to create place');
+    }
+    setLoading(false);
+  };
+
+  return (
+    <div className="min-h-screen bg-[#FDFBF7]">
+      {/* Header */}
+      <nav className="sticky top-0 z-50 bg-[#FDFBF7]/80 backdrop-blur-xl border-b-2 border-slate-900 px-6 py-4 flex justify-between items-center">
+        <div className="flex items-center gap-3">
+          <div className="w-10 h-10 bg-[#FF5722] border-2 border-slate-900 rounded-xl flex items-center justify-center neo-shadow-sm">
+            <Star className="w-5 h-5 text-white" strokeWidth={2.5} />
+          </div>
+          <span className="font-['Outfit'] font-black text-xl text-slate-900">ReviewBoost</span>
+        </div>
+        <button
+          data-testid="back-to-places-btn"
+          onClick={() => navigate('/admin/places')}
+          className="text-slate-500 hover:text-slate-900 transition-colors p-2 flex items-center gap-1 text-sm font-['Work_Sans']"
+        >
+          <ArrowLeft className="w-4 h-4" strokeWidth={2.5} />
+          Back
+        </button>
+      </nav>
+
+      <div className="p-6 md:p-8 lg:p-12 max-w-2xl mx-auto">
+        <h1 className="font-['Outfit'] font-black text-3xl text-slate-900 mb-2">Add New Place</h1>
+        <p className="text-slate-500 font-['Work_Sans'] mb-8">Fill in the details to generate AI reviews and a QR code</p>
+
+        {error && (
+          <div className="bg-red-50 border-2 border-red-300 rounded-xl px-4 py-3 mb-6 text-red-700 text-sm font-['Work_Sans']" data-testid="add-place-error">
+            {error}
+          </div>
+        )}
+
+        <form onSubmit={handleSubmit} className="space-y-6" data-testid="add-place-form">
+          <div className="bg-white border-2 border-slate-900 rounded-xl p-6 neo-shadow space-y-5">
+            <div>
+              <Label className="font-['Work_Sans'] font-semibold text-slate-900">Business Name *</Label>
+              <Input
+                data-testid="place-name-input"
+                value={form.name}
+                onChange={(e) => setForm({ ...form, name: e.target.value })}
+                placeholder="e.g. Grand Palace Hotel"
+                required
+                className="mt-1 border-2 border-slate-300 focus:border-[#FF5722] rounded-xl h-12 font-['Work_Sans']"
+              />
+            </div>
+
+            <div>
+              <Label className="font-['Work_Sans'] font-semibold text-slate-900">Category *</Label>
+              <Select value={form.category} onValueChange={(val) => setForm({ ...form, category: val })}>
+                <SelectTrigger data-testid="place-category-select" className="mt-1 border-2 border-slate-300 rounded-xl h-12 font-['Work_Sans']">
+                  <SelectValue />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="hotel">Hotel</SelectItem>
+                  <SelectItem value="restaurant">Restaurant</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+
+            <div>
+              <Label className="font-['Work_Sans'] font-semibold text-slate-900">Description</Label>
+              <Textarea
+                data-testid="place-description-input"
+                value={form.description}
+                onChange={(e) => setForm({ ...form, description: e.target.value })}
+                placeholder="Brief description of the business"
+                className="mt-1 border-2 border-slate-300 focus:border-[#FF5722] rounded-xl font-['Work_Sans'] min-h-[80px]"
+              />
+            </div>
+
+            <div>
+              <Label className="font-['Work_Sans'] font-semibold text-slate-900">Address</Label>
+              <Input
+                data-testid="place-address-input"
+                value={form.address}
+                onChange={(e) => setForm({ ...form, address: e.target.value })}
+                placeholder="e.g. 123 Main Street, City"
+                className="mt-1 border-2 border-slate-300 focus:border-[#FF5722] rounded-xl h-12 font-['Work_Sans']"
+              />
+            </div>
+
+            <div>
+              <Label className="font-['Work_Sans'] font-semibold text-slate-900">Google Review URL *</Label>
+              <Input
+                data-testid="place-google-url-input"
+                value={form.google_review_url}
+                onChange={(e) => setForm({ ...form, google_review_url: e.target.value })}
+                placeholder="https://g.page/r/..."
+                required
+                className="mt-1 border-2 border-slate-300 focus:border-[#FF5722] rounded-xl h-12 font-['Work_Sans']"
+              />
+              <p className="text-xs text-slate-400 font-['Work_Sans'] mt-1">Paste the direct Google review link for your business</p>
+            </div>
+
+            <div>
+              <Label className="font-['Work_Sans'] font-semibold text-slate-900">Image URL (optional)</Label>
+              <Input
+                data-testid="place-image-url-input"
+                value={form.image_url}
+                onChange={(e) => setForm({ ...form, image_url: e.target.value })}
+                placeholder="https://example.com/image.jpg"
+                className="mt-1 border-2 border-slate-300 focus:border-[#FF5722] rounded-xl h-12 font-['Work_Sans']"
+              />
+              <p className="text-xs text-slate-400 font-['Work_Sans'] mt-1">Leave empty to use a default placeholder</p>
+            </div>
+          </div>
+
+          <button
+            type="submit"
+            data-testid="submit-place-btn"
+            disabled={loading}
+            className="w-full bg-[#FF5722] text-white border-2 border-slate-900 rounded-xl px-8 py-4 font-bold text-lg hover:-translate-y-0.5 hover:shadow-[6px_6px_0px_0px_rgba(15,23,42,1)] transition-all neo-shadow font-['Work_Sans'] disabled:opacity-60 flex items-center justify-center gap-2"
+          >
+            <Save className="w-5 h-5" strokeWidth={2.5} />
+            {loading ? 'Creating...' : 'Create Place & Generate Reviews'}
+          </button>
+        </form>
+      </div>
+    </div>
+  );
+}
