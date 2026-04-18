@@ -1,0 +1,115 @@
+{
+  "theme": "light",
+  "archetype": "3_pastel_and_soft",
+  "archetype_description": "Pastel & Soft but with Neo-Brutalist contrast. Optimistic, light, tactile with hard black borders and bold typography to make it conversion-focused for customer attraction.",
+  "typography": {
+    "fonts": {
+      "headings": "Outfit",
+      "body": "Work Sans",
+      "monospace": "JetBrains Mono",
+      "install_command": "Use Google Fonts for Outfit and Work Sans"
+    },
+    "scales": {
+      "h1": "text-4xl sm:text-5xl lg:text-6xl tracking-tight font-black",
+      "h2": "text-2xl sm:text-3xl lg:text-4xl tracking-tight font-bold",
+      "h3": "text-xl sm:text-2xl font-semibold",
+      "body": "text-base leading-relaxed",
+      "small": "text-sm uppercase tracking-[0.2em] font-medium"
+    }
+  },
+  "colors": {
+    "background": {
+      "default": "#FDFBF7",
+      "card": "#FFFFFF",
+      "overlay": "rgba(15, 23, 42, 0.4)"
+    },
+    "primary": {
+      "default": "#FF5722",
+      "hover": "#E64A19",
+      "text": "#FFFFFF"
+    },
+    "secondary": {
+      "default": "#FFD54F",
+      "hover": "#FFC107",
+      "text": "#0F172A"
+    },
+    "success": {
+      "default": "#A7F3D0",
+      "text": "#064E3B"
+    },
+    "neutral": {
+      "900": "#0F172A",
+      "800": "#1E293B",
+      "100": "#F1F5F9",
+      "border": "#0F172A"
+    }
+  },
+  "spacing_and_layout": {
+    "container_padding": "p-6 md:p-8 lg:p-12",
+    "bento_grid": {
+      "admin_dashboard": "grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6",
+      "place_listing": "grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+    },
+    "borders": "border-2 border-slate-900 rounded-xl",
+    "shadows": "shadow-[4px_4px_0px_0px_rgba(15,23,42,1)]"
+  },
+  "components": {
+    "buttons": {
+      "primary": "bg-[#FF5722] text-white border-2 border-slate-900 rounded-xl px-8 py-4 font-bold text-lg hover:-translate-y-1 hover:shadow-[4px_4px_0px_0px_rgba(15,23,42,1)] transition-all",
+      "secondary": "bg-white text-slate-900 border-2 border-slate-900 rounded-xl px-6 py-3 font-semibold hover:bg-slate-50 transition-all",
+      "success_state": "bg-[#A7F3D0] text-[#064E3B] border-2 border-slate-900"
+    },
+    "cards": {
+      "default": "bg-white border-2 border-slate-900 rounded-xl p-6 shadow-[4px_4px_0px_0px_rgba(15,23,42,1)]"
+    },
+    "mobile_qr_page": {
+      "layout": "min-h-screen bg-[#FDFBF7] flex flex-col pb-32",
+      "review_box": "bg-white border-2 border-slate-900 rounded-2xl p-6 mx-4 my-6 text-xl leading-relaxed shadow-[4px_4px_0px_0px_rgba(15,23,42,1)] relative",
+      "sticky_bottom_cta": "fixed bottom-0 left-0 right-0 p-4 bg-[#FDFBF7]/90 backdrop-blur-md border-t-2 border-slate-900 flex flex-col gap-3 z-50"
+    },
+    "navigation": {
+      "header": "sticky top-0 z-50 bg-[#FDFBF7]/80 backdrop-blur-xl border-b-2 border-slate-900 px-6 py-4 flex justify-between items-center"
+    }
+  },
+  "media": {
+    "hero": [
+      {
+        "url": "https://static.prod-images.emergentagent.com/jobs/1f204189-95ff-4ea5-8545-7bd787e7a5a3/images/078d701678c89ed5695f4d9a073128c1cdff6a44f906d319522e665e8be30e3f.png",
+        "category": "admin_landing_hero",
+        "description": "3D glowing QR code floating over a cafe table. Use for the admin landing page hero section."
+      },
+      {
+        "url": "https://static.prod-images.emergentagent.com/jobs/1f204189-95ff-4ea5-8545-7bd787e7a5a3/images/a57d8c4ae558f2d7de7617a6be46bb6c61dd7c949f658b9fc375ab9c0ba82b5a.png",
+        "category": "mobile_qr_background",
+        "description": "Abstract gold stars on pastel background. Use as a subtle header background for the mobile QR scan page."
+      }
+    ],
+    "placeholders": [
+      {
+        "url": "https://images.unsplash.com/photo-1685040235380-a42a129ade4e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA2ODl8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjByZXN0YXVyYW50JTIwaW50ZXJpb3J8ZW58MHx8fHwxNzc2NTM2MjEwfDA&ixlib=rb-4.1.0&q=85",
+        "category": "restaurant_placeholder_1"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1687945512099-400cbe94460c?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA2ODl8MHwxfHNlYXJjaHwyfHxtb2Rlcm4lMjByZXN0YXVyYW50JTIwaW50ZXJpb3J8ZW58MHx8fHwxNzc2NTM2MjEwfDA&ixlib=rb-4.1.0&q=85",
+        "category": "restaurant_placeholder_2"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1723465308831-29da05e011f3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAxODF8MHwxfHNlYXJjaHwxfHxsdXh1cnklMjBob3RlbCUyMGZhY2FkZXxlbnwwfHx8fDE3NzY1MzYyMTB8MA&ixlib=rb-4.1.0&q=85",
+        "category": "hotel_placeholder_1"
+      }
+    ],
+    "icons": {
+      "library": "lucide-react",
+      "instruction": "Use Lucide-react icons heavily. Stroke-width 2.5 for a punchy, neo-brutalist feel."
+    }
+  },
+  "instructions_to_main_agent": [
+    "Use pure HTML + Tailwind for marketing and mobile UI. Use Shadcn + Tailwind for Admin Dashboard but override borders and shadows to match the neo-brutalist theme (2px borders, 4px solid shadow).",
+    "For the QR scan landing page: DO NOT use a standard center-aligned generic page. Use the 'mobile_qr_page' layout instructions. The AI review must be in a massive, highly legible card. The 'Copy & Post on Google' CTA MUST be sticky at the bottom of the viewport so the user doesn't have to scroll to find it.",
+    "Implement a micro-interaction on the 'Copy' button: When clicked, change text to 'Copied!' and button color to success.default (#A7F3D0), then open the Google Business link in a new tab.",
+    "Add 'data-testid' to all buttons and form inputs (e.g., data-testid='copy-review-btn').",
+    "For QR Code generation in the admin panel, use a library like 'qrcode.react' and ensure the QR code is displayed inside a styled neo-brutalist card that the admin can download or print.",
+    "Fonts must be imported from Google Fonts: 'Outfit' (wght: 400..900) for Headings, 'Work Sans' (wght: 400..700) for Body.",
+    "Do NOT use 'Inter'. Ensure it is fully removed from Tailwind config default sans."
+  ]
+}
