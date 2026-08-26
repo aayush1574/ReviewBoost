@@ -265,23 +265,9 @@ app.get("/api/public/place/:slug", async (req, res) => {
     if (rows.length === 0) return res.status(404).json({ error: "Not found" });
 
     const placeData = rows[0];
-    const todayStr = new Date().toISOString().split('T')[0];
 
-    let reviewsArr = [];
-    if (placeData.last_rotated_date !== todayStr) {
-      try {
-        const freshReviews = await generateReviews(placeData.name, placeData.category, placeData.tone);
-        const reviewsStr = JSON.stringify(freshReviews);
-        await query("UPDATE places SET reviews = ?, last_rotated_date = ? WHERE id = ?", [reviewsStr, todayStr, placeData.id]);
-        reviewsArr = freshReviews;
-        console.log(`Auto-rotated reviews to today's date for place: ${placeData.name}`);
-      } catch (err) {
-        console.error("Failed to auto-rotate reviews on fetch:", err);
-        reviewsArr = placeData.reviews ? JSON.parse(placeData.reviews) : [];
-      }
-    } else {
-      reviewsArr = placeData.reviews ? JSON.parse(placeData.reviews) : [];
-    }
+    // Generate fresh reviews on every single scan so the user always gets new ones
+    const freshReviews = await generateReviews(placeData.name, placeData.category, placeData.tone);
 
     // Increment scans
     const newScans = (placeData.total_scans || 0) + 1;
@@ -290,7 +276,7 @@ app.get("/api/public/place/:slug", async (req, res) => {
     res.json({
       ...placeData,
       id: String(placeData.id),
-      reviews: reviewsArr,
+      reviews: freshReviews,
       total_scans: newScans
     });
   } catch (err) {
