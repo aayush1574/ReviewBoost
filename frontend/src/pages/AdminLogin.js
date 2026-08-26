@@ -37,7 +37,7 @@ export default function AdminLogin() {
           <div className="w-12 h-12 bg-[#FF5722] border-2 border-slate-900 rounded-xl flex items-center justify-center neo-shadow-sm">
             <Star className="w-6 h-6 text-white" strokeWidth={2.5} />
           </div>
-          <span className="font-['Outfit'] font-black text-2xl text-slate-900">ReviewBoost</span>
+          <span className="font-['Outfit'] font-black text-2xl text-slate-900">GoogleBoost</span>
         </div>
 
         {/* Card */}
@@ -60,7 +60,7 @@ export default function AdminLogin() {
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                placeholder="admin@reviewboost.com"
+                placeholder="admin@GoogleBoost.com"
                 required
                 className="mt-1 border-2 border-slate-300 focus:border-[#FF5722] rounded-xl h-12 font-['Work_Sans']"
               />

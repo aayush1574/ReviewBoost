@@ -47,7 +47,7 @@ export default function AdminDashboard() {
           <div className="w-10 h-10 bg-[#FF5722] border-2 border-slate-900 rounded-xl flex items-center justify-center neo-shadow-sm">
             <Star className="w-5 h-5 text-white" strokeWidth={2.5} />
           </div>
-          <span className="font-['Outfit'] font-black text-xl text-slate-900">ReviewBoost</span>
+          <span className="font-['Outfit'] font-black text-xl text-slate-900">GoogleBoost</span>
           <span className="text-sm bg-[#FFD54F] border-2 border-slate-900 rounded-full px-3 py-0.5 font-semibold font-['Work_Sans'] hidden sm:inline">Admin</span>
         </div>
         <div className="flex items-center gap-3">

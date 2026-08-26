@@ -85,7 +85,7 @@ export default function ReviewPage() {
             <div className="w-8 h-8 bg-[#FF5722] border-2 border-slate-900 rounded-lg flex items-center justify-center">
               <Star className="w-4 h-4 text-white" strokeWidth={2.5} />
             </div>
-            <span className="font-['Outfit'] font-bold text-sm text-slate-900">ReviewBoost</span>
+            <span className="font-['Outfit'] font-bold text-sm text-slate-900">GoogleBoost</span>
           </div>
           {place.image_url && (
             <img src={place.image_url} alt={place.name} className="w-full h-40 object-cover rounded-xl border-2 border-slate-900 neo-shadow-sm mb-4" />

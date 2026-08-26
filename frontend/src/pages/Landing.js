@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import { Star, QrCode, Copy, ExternalLink, ArrowRight, Zap, BarChart3, Shield } from 'lucide-react';
+import { Star, QrCode, Copy, ExternalLink, ArrowRight, Zap, BarChart3, Shield, Mail, Phone, MessageCircle } from 'lucide-react';
 
 export default function Landing() {
   const navigate = useNavigate();
@@ -12,7 +12,7 @@ export default function Landing() {
           <div className="w-10 h-10 bg-[#FF5722] border-2 border-slate-900 rounded-xl flex items-center justify-center neo-shadow-sm">
             <Star className="w-5 h-5 text-white" strokeWidth={2.5} />
           </div>
-          <span className="font-['Outfit'] font-black text-xl text-slate-900">ReviewBoost</span>
+          <span className="font-['Outfit'] font-black text-xl text-slate-900">GoogleBoost</span>
         </div>
         <button
           data-testid="nav-admin-login-btn"
@@ -103,11 +103,56 @@ export default function Landing() {
         </div>
       </section>
 
+      {/* Contact Us */}
+      <section className="px-6 md:px-12 lg:px-20 py-16 bg-[#FDFBF7]" id="contact">
+        <div className="max-w-4xl mx-auto bg-white border-2 border-slate-900 rounded-2xl p-8 md:p-12 neo-shadow">
+          <div className="text-center mb-10">
+            <h2 className="font-['Outfit'] font-black text-3xl sm:text-4xl text-slate-900 mb-4">Get in Touch</h2>
+            <p className="text-slate-600 font-['Work_Sans'] text-lg max-w-xl mx-auto">
+              Have questions or need help setting up GoogleBoost? We're here to help you supercharge your Google reviews!
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-2 gap-8 mb-10">
+            <div className="flex flex-col items-center p-6 bg-slate-50 border-2 border-slate-900 rounded-xl text-center hover:-translate-y-1 transition-all neo-shadow-sm">
+              <Phone className="w-8 h-8 text-[#FF5722] mb-4" strokeWidth={2} />
+              <h3 className="font-['Outfit'] font-bold text-xl mb-3 text-slate-900">Call Us</h3>
+              <div className="text-slate-600 font-['Work_Sans'] font-medium space-y-2">
+                <p>Aayush purohit: <br/><a href="tel:7225083904" className="text-[#FF5722] hover:underline text-lg">7225083904</a></p>
+                <p>Rituraj suryawanshi: <br/><a href="tel:7089956401" className="text-[#FF5722] hover:underline text-lg">7089956401</a></p>
+              </div>
+            </div>
+
+            <div className="flex flex-col items-center p-6 bg-slate-50 border-2 border-slate-900 rounded-xl text-center hover:-translate-y-1 transition-all neo-shadow-sm">
+              <Mail className="w-8 h-8 text-[#FFD54F] mb-4" strokeWidth={2} />
+              <h3 className="font-['Outfit'] font-bold text-xl mb-3 text-slate-900">Email Us</h3>
+              <p className="text-slate-600 font-['Work_Sans'] font-medium">
+                <a href="mailto:supernovaind00@gmail.com" className="text-slate-900 hover:text-[#FF5722] transition-colors break-all text-lg">
+                  supernovaind00@gmail.com
+                </a>
+              </p>
+            </div>
+          </div>
+
+          <div className="flex justify-center">
+            <a
+              href="https://wa.me/917225083904"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-3 bg-[#25D366] text-white border-2 border-slate-900 rounded-xl px-8 py-4 font-bold text-lg hover:-translate-y-1 hover:shadow-[6px_6px_0px_0px_rgba(15,23,42,1)] transition-all neo-shadow font-['Work_Sans']"
+            >
+              <MessageCircle className="w-6 h-6" strokeWidth={2.5} />
+              Chat on WhatsApp
+            </a>
+          </div>
+        </div>
+      </section>
+
       {/* Footer */}
-      <footer className="border-t-2 border-slate-900 px-6 py-8 text-center">
+      <footer className="border-t-2 border-slate-900 px-6 py-8 text-center bg-white">
         <div className="flex items-center justify-center gap-2 mb-2">
           <Star className="w-5 h-5 text-[#FF5722]" strokeWidth={2.5} />
-          <span className="font-['Outfit'] font-bold text-lg">ReviewBoost</span>
+          <span className="font-['Outfit'] font-bold text-lg">GoogleBoost</span>
         </div>
         <p className="text-slate-500 text-sm font-['Work_Sans']">AI-Powered Review Management for Local Businesses</p>
       </footer>
