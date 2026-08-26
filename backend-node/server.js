@@ -84,6 +84,12 @@ app.get("/api/hello", (req, res) => {
   res.status(200).send({ message: "Hello from Standalone Node Backend!" });
 });
 
+// Health check route
+app.get("/health", (req, res) => {
+  res.status(200).json({ status: "ok" });
+});
+
+
 // Image Upload Endpoint
 app.post("/api/upload", upload.single("image"), (req, res) => {
   if (!req.file) {
