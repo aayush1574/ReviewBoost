@@ -1,4 +1,5 @@
 // Rich collection of review templates categorized by type and tone
+// Total: 504 templates (21 templates per category-tone combination)
 const REVIEW_TEMPLATES = {
   restaurant: {
     casual: [
@@ -9,7 +10,20 @@ const REVIEW_TEMPLATES = {
       "Really enjoyed the food at {name}. Service was quick, the seating was comfortable, and the menu selection was great. Definitely will be coming back here again soon!",
       "I've been to {name} a couple of times now and the quality is always consistent. The burgers are juicy, the fries are crispy, and the staff is genuinely friendly.",
       "Perfect spot to grab a bite. {name} has a wonderful cozy charm, quick service, and delicious food that doesn't break the bank. Highly recommend the daily specials.",
-      "Had a really nice lunch at {name}. The outdoor seating was lovely, the sandwiches were packed with flavor, and the drinks were refreshing. Perfect midday stop."
+      "Had a really nice lunch at {name}. The outdoor seating was lovely, the sandwiches were packed with flavor, and the drinks were refreshing. Perfect midday stop.",
+      "Always a reliable choice for a quick and tasty dinner. The staff at {name} are always super welcoming, and the street tacos are absolutely stellar.",
+      "Highly recommend checking out {name}. The casual atmosphere makes it great for unwinding, and the portions are large enough that you'll likely have leftovers.",
+      "A great neighborhood gem. {name} has wonderful wood-fired pizzas, a good local craft beer list, and a very laid-back attitude that makes you feel right at home.",
+      "Had the wings and sliders at {name} last night and they were cooked to absolute perfection. Fast service and a great selection of local beers on tap.",
+      "Perfect place for a weekend brunch. {name} has excellent egg dishes, freshly squeezed juices, and the staff is extremely patient even when it gets super busy.",
+      "Really nice dinner tonight at {name}. The salads were crisp, the garlic bread was warm and fresh, and our server made sure we had everything we needed.",
+      "If you're looking for delicious food in a relaxed environment, {name} is the spot. The fish and chips were hot, crispy, and served with a fantastic tartar sauce.",
+      "Had a quick lunch at {name}. The service was super prompt, the soup of the day was delicious and hearty, and the prices are very hard to beat.",
+      "We always have a great time when we visit {name}. The children's menu has healthy options, the staff is very accommodating, and the milkshakes are legendary.",
+      "A very cozy and unpretentious spot. The homemade pasta at {name} is incredibly flavorful, and the staff treated us like old friends.",
+      "Tried the new weekend specials at {name} and they did not disappoint. Extremely fresh seafood and a very relaxed, comfortable dining room.",
+      "A solid local eatery that consistently delivers. {name} has great burger options, excellent side dishes, and the service is always friendly and fast.",
+      "Really enjoyed the laid-back dining room at {name}. The wraps are fresh and tasty, and it's a great place to meet up with friends for a quick bite."
     ],
     formal: [
       "Dining at {name} was an exemplary culinary experience. Each course was prepared with evident skill and presented with artistic precision. The staff is highly knowledgeable and attentive.",
@@ -19,7 +33,20 @@ const REVIEW_TEMPLATES = {
       "From the elegant table settings to the sophisticated flavor combinations, {name} represents the pinnacle of fine dining in the area. A truly remarkable evening.",
       "We were thoroughly impressed by the culinary craftsmanship at {name}. The attention to detail in both service and presentation created an unforgettable dining experience.",
       "The sophisticated atmosphere at {name} is matched only by the excellence of its kitchen. Every dish was executed to perfection, showing great culinary discipline.",
-      "For those seeking a refined and sophisticated meal, {name} is the premier choice. The service is unobtrusive yet highly attentive, and the cuisine is top-tier."
+      "For those seeking a refined and sophisticated meal, {name} is the premier choice. The service is unobtrusive yet highly attentive, and the cuisine is top-tier.",
+      "An outstanding establishment where gastronomy is elevated to an art form. The tasting menu at {name} was beautifully composed, balanced, and memorable.",
+      "The dedication to culinary excellence at {name} is apparent in every detail. The sommelier provided exceptional recommendations that paired perfectly with our courses.",
+      "A sophisticated culinary journey. The quality of the ingredients at {name} is matched only by the technical precision and artistry of the kitchen staff.",
+      "We had a magnificent evening at {name}. The private dining room was elegantly appointed, and the service was executed with quiet professionalism.",
+      "Every element of our dinner at {name} was handled with refined expertise. The presentation of the dishes was stunning, and the flavors were deep and complex.",
+      "An elegant dining room, highly professional service, and a menu of great sophistication. {name} is perfect for hosting clients or celebrating key milestones.",
+      "The culinary team at {name} possesses a rare talent for balancing classic technique with innovative concepts. A truly world-class dining experience.",
+      "Highly recommended for those who appreciate fine linens, quiet environments, and meticulously crafted cuisine. {name} exceeded our expectations in every category.",
+      "The level of execution at {name} is consistently high. The seafood was incredibly fresh and prepared with restraint, allowing the natural flavors to shine.",
+      "A distinguished dining experience characterized by superb service, refined ambiance, and a menu that showcases seasonal ingredients at their absolute peak.",
+      "We were treated to an exceptional dining experience at {name}. The waitstaff was highly attentive without being intrusive, and the dishes were extraordinary.",
+      "The dining room at {name} offers a tranquil and elegant escape. The preparation of the meat dishes showed excellent temperature control and seasoning.",
+      "A masterclass in fine dining. {name} offers a harmonious combination of elegant decor, attentive service, and dishes that are both beautiful and delicious."
     ],
     enthusiastic: [
       "The food at {name} is absolutely DIVINE!! Every single dish was bursting with flavor and the presentation was GORGEOUS! 11/10 would eat here every single day! ⭐⭐⭐⭐⭐",
@@ -29,7 +56,20 @@ const REVIEW_TEMPLATES = {
       "Wow, just wow! {name} completely exceeded my expectations! The atmosphere is electric, the food is mouth-watering, and the desserts are out of this world! ❤️",
       "Absolute perfection! {name} has officially won my heart. The dishes are so unique and flavorful, and the staff's passion for great food really shows!",
       "If you haven't been to {name} yet, you are seriously missing out! The food is legendary, the portion sizes are huge, and the service is incredibly fast and friendly! 🌟",
-      "An absolute flavor explosion! {name} is a masterpiece of a restaurant. Every bite was pure bliss, and the cocktails were masterfully crafted!"
+      "An absolute flavor explosion! {name} is a masterpiece of a restaurant. Every bite was pure bliss, and the cocktails were masterfully crafted!",
+      "Oh my god, the cheese sauce here is absolutely legendary! {name} is a total game-changer. I am recommending it to literally everyone I know! 🧀🔥",
+      "I am completely blown away! {name} serves the most delicious, mouth-watering dishes I have ever tasted! The energy here is so fun and vibrant!",
+      "THIS PLACE IS A MUST-VISIT! {name} has the best vibes, the staff is incredibly high-energy, and the food is so good it will make you cry! 😭😭😭",
+      "Simply phenomenal! {name} has the absolute best food in town, period. The presentation looks like art and the taste is out of this world! 🚀✨",
+      "I would give {name} 10 stars if I could! The service was lightning fast, the atmosphere was incredibly fun, and the food was mouth-watering!",
+      "CRUSHED MY EXPECTATIONS! {name} is a total culinary paradise. The truffle fries and the sliders are absolute must-tries! SO GOOD! 😍🍔",
+      "I am in food heaven! Everything about {name} is top-tier. The staff are so enthusiastic and the food is insanely delicious! Love, love, love it!",
+      "ABSOLUTELY INCREDIBLE! {name} is the gold standard for dining out. Incredible menu options, great drinks, and the absolute best team in town! 🍾🌟",
+      "My mind is officially blown! {name} has the most creative dishes, amazing playlists, and the friendliest staff. Best night out in a long time! 🎉💃",
+      "I'm literally obsessed with this place! The desserts at {name} are to die for, and the main courses are seasoned to absolute perfection! ⭐⭐⭐⭐⭐",
+      "BEST SPOT IN THE CITY! {name} has such an awesome vibe and the food is cooked to absolute perfection. I could eat here every single day!",
+      "An absolute triumph! The flavors at {name} are so bold and exciting, and the customer service is so warm and welcoming. Can't wait to go back! ❤️",
+      "UNBELIEVABLE EXPERIENCE! {name} is doing something truly special here. Amazing food, stellar drinks, and a super energetic and friendly team!"
     ]
   },
   hotel: {
@@ -41,7 +81,20 @@ const REVIEW_TEMPLATES = {
       "We had a lovely, hassle-free stay at {name}. The room was quiet, the Wi-Fi was fast, and the staff was always happy to help with local recommendations.",
       "Nice, cozy hotel with all the essentials. {name} has a great lobby lounge, comfortable rooms, and very accommodating service. No complaints at all!",
       "I was pleasantly surprised by {name}. The price was very reasonable, the room was spotless, and the bed was super comfortable. Will definitely book again.",
-      "A great option for business travelers or tourists alike. {name} offers clean, quiet rooms, friendly service, and a convenient location close to key spots."
+      "A great option for business travelers or tourists alike. {name} offers clean, quiet rooms, friendly service, and a convenient location close to key spots.",
+      "Had a really nice stay at {name}. The check-in was fast, the parking was easy, and the room had a nice view of the courtyard. Highly recommend.",
+      "A solid choice if you're visiting the city. The rooms at {name} are neat and spacious, and they have a free coffee station in the lobby which is great.",
+      "Very clean and quiet hotel. {name} has very helpful front desk staff, and it is located walking distance from several great local restaurants.",
+      "Stayed here for a quick business trip. The desk in the room was spacious, the internet was reliable, and the bed at {name} was very comfortable.",
+      "We had a wonderful weekend at {name}. The pool area is very relaxing, the room was cool and clean, and the checkout process was extremely simple.",
+      "Highly recommend {name} for anyone traveling on a budget. You get clean rooms, friendly service, and a great location without paying a fortune.",
+      "Great experience at {name}. The lobby has a nice relaxed seating area, the rooms are well-maintained, and the staff is very responsive to requests.",
+      "Spent three nights at {name} and found it very comfortable. The room had a small fridge and microwave, which was super convenient for snacks.",
+      "A lovely hotel with a lot of character. The courtyard at {name} is beautiful, and the staff did a great job making sure we felt welcome.",
+      "Really enjoyed our stay here. The rooms at {name} are quiet, the bathrooms are clean and modern, and the location is close to downtown.",
+      "A perfect place to crash after a long day of sightseeing. {name} is clean, quiet, and the staff is incredibly polite and helpful.",
+      "We had a very positive experience at {name}. The continental breakfast had plenty of choices, and the room was kept spotless by housekeeping.",
+      "Very comfortable hotel in a great neighborhood. {name} has friendly staff, comfortable beds, and a cozy atmosphere that makes you feel at home."
     ],
     formal: [
       "I had the privilege of staying at {name} recently, and the experience was truly exemplary. The accommodations were impeccably maintained, and the service was professional.",
@@ -51,7 +104,20 @@ const REVIEW_TEMPLATES = {
       "The level of professionalism and attentiveness displayed by the staff at {name} was superb. The rooms are spacious, well-appointed, and offer complete comfort.",
       "A magnificent establishment. {name} offers refined luxury, peaceful surroundings, and a commitment to guest satisfaction that is visible in every department.",
       "For a sophisticated and relaxing stay, {name} is unmatched. The executive lounge, fitness center, and in-room technology are all of superior quality.",
-      "We were thoroughly impressed by the exemplary standards of service at {name}. The staff went above and beyond to ensure our conference stay was perfect."
+      "We were thoroughly impressed by the exemplary standards of service at {name}. The staff went above and beyond to ensure our conference stay was perfect.",
+      "I highly recommend {name} for corporate events and luxury stays. The meeting facilities are state-of-the-art and the catering service is outstanding.",
+      "An exceptionally well-managed hotel. {name} provides an atmosphere of quiet elegance, with staff that are highly attentive yet respectful of privacy.",
+      "The accommodations at {name} are designed for maximum comfort and style. Every amenity is of the highest quality, ensuring a seamless luxury stay.",
+      "We experienced unmatched hospitality during our stay at {name}. The check-in was handled with great professional courtesy, and our room was magnificent.",
+      "A distinguished property that consistently delivers a premium experience. The concierge desk at {name} provided exceptional assistance with dining reservations.",
+      "From the quiet elegance of the lobby to the high-quality linens in the room, {name} demonstrates a superior understanding of luxury guest service.",
+      "We were extremely satisfied with our executive stay at {name}. The quiet environment, fast internet, and premium room service made it highly productive.",
+      "An outstanding destination for travelers seeking a refined and tranquil hotel. The grounds at {name} are pristine and the service is flawless.",
+      "The staff at {name} executed their duties with exemplary professionalism. The valet service was prompt and the room preparation was immaculate.",
+      "A premier hotel offering sophisticated decor, spacious and clean rooms, and an exceptional business center. {name} is a highly recommended location.",
+      "Our stay at {name} was outstanding. The attention to detail in the suite preparation and the polite attitude of the staff were highly impressive.",
+      "For business travelers requiring a seamless and polished experience, {name} is the ideal choice. The executive lounge is exceptionally quiet and productive.",
+      "We had a wonderful, quiet stay at {name}. The security is excellent, the rooms are beautifully appointed, and the overall service is of the highest standard."
     ],
     enthusiastic: [
       "OMG {name} is AMAZING!! The rooms are absolutely gorgeous, the staff are the absolute sweetest, and I literally did not want to check out! 100% recommended! 🏨✨",
@@ -61,7 +127,20 @@ const REVIEW_TEMPLATES = {
       "I can't say enough good things about {name}! The design is gorgeous, the beds are super cozy, and the location is unbeatable! Will definitely be back!",
       "Best vacation ever thanks to {name}! The amenities are top-tier, the rooms are pristine, and the views are absolutely breathtaking! 10/10!",
       "If you're looking for the ultimate staycation, {name} is the place to be! The service is outstanding, the vibes are perfect, and the spa is heaven! 🌸⭐",
-      "Phenomenal hotel! {name} is a total gem. The staff was incredibly welcoming, the rooms were super modern, and the rooftop view was unforgettable!"
+      "Phenomenal hotel! {name} is a total gem. The staff was incredibly welcoming, the rooms were super modern, and the rooftop view was unforgettable!",
+      "I am absolutely blown away by {name}!! The service is insanely fast, the beds are like clouds, and the views are just gorgeous! Best trip ever! 🎉🏨",
+      "Simply outstanding! {name} has the best staff, the coolest design, and the location is perfect! I am already planning my next trip back here! ❤️",
+      "WOW! {name} is a total paradise! The pool deck is gorgeous, the cocktails are delicious, and the rooms are so luxurious! 10/10 recommend! 🌟",
+      "I'm in love with this hotel! The design is so cool and modern, the staff are super friendly, and the breakfast buffet is an absolute dream! 🥞😍",
+      "Best hotel stay ever! {name} treats you like royalty from the second you walk through the door. The rooms are spotless and the energy is awesome!",
+      "ABSOLUTELY STUNNING! {name} is a masterpiece of hospitality. The rooms are huge, clean, and beautiful, and the staff are incredibly sweet! 💖",
+      "If you want to be wowed, book a room at {name}! The lobby is beautiful, the rooms are pristine, and the customer service is out of this world! ⭐⭐⭐⭐⭐",
+      "My mind is blown! {name} is the absolute best hotel in the area. Incredible gym, beautiful rooms, and the most accommodating staff! 🏋️‍♂️🎉",
+      "I had the most magical stay at {name}! The spa was pure heaven, the restaurant was delicious, and the room view was absolutely spectacular! 🌸",
+      "Absolute perfection! {name} exceeded every single expectation. The rooms are super cozy, the staff is amazing, and the location is perfect! ❤️",
+      "I would give this place 100 stars if I could! {name} is absolutely spectacular. The service was lightning fast and the vibe is so cool!",
+      "What an absolute gem! {name} has won my heart. Incredible rooms, a gorgeous pool area, and the friendliest staff in the industry! 🌟💖",
+      "An unforgettable stay! {name} is clean, modern, and has the most energetic and welcoming team. Will recommend to all my friends! 🚀🔥"
     ]
   },
   cafe: {
@@ -73,7 +152,20 @@ const REVIEW_TEMPLATES = {
       "Really cozy vibes at {name}. It's a great place to meet up with a friend or do some work. The staff is friendly and the tea selection is wonderful.",
       "Always a great experience at {name}. The atmosphere is relaxed, the background music is at the perfect volume, and the coffee is brewed to perfection.",
       "Found this place by accident and now I'm a regular. {name} has excellent cold brew, friendly service, and a beautiful outdoor patio.",
-      "The perfect spot for a weekend morning. {name} offers delicious pastries, great specialty coffees, and a relaxed environment to start your day."
+      "The perfect spot for a weekend morning. {name} offers delicious pastries, great specialty coffees, and a relaxed environment to start your day.",
+      "Really love the setup at {name}. The staff are always smiling, and the chai latte is one of the best I've ever had. Very cozy spot.",
+      "A great place to grab a quick coffee before work. The service at {name} is always speedy, and the bagels are toasted just right.",
+      "Very laid-back cafe with plenty of seating. {name} has a great selection of teas and their gluten-free pastries are actually delicious.",
+      "Had a lovely afternoon reading at {name}. The staff is super friendly, the seating is comfortable, and the coffee is excellent.",
+      "A fantastic neighborhood spot. The baristas at {name} really know their coffee, and the atmosphere is perfect for relaxing.",
+      "Really nice cold brew and friendly service. {name} is my new favorite place to do work on my laptop. Highly recommend.",
+      "Always consistent quality. The espresso at {name} is never bitter, the pastries are fresh, and the staff is extremely quick.",
+      "Had a great iced tea at {name}. The outdoor seating is quiet and shady, making it a perfect spot for hot summer days.",
+      "A very welcoming cafe. The staff at {name} are super helpful, the layout is spacious, and the pastries are baked fresh daily.",
+      "Great place to catch up with friends. {name} has a cozy interior, friendly baristas, and a wonderful menu of specialty drinks.",
+      "The coffee at {name} is delicious and the prices are very reasonable. It's a great place to stop during a busy afternoon.",
+      "A really charming little coffee shop. {name} has a great selection of beans, friendly service, and a very relaxing vibe.",
+      "Always love stopping by {name}. The atmosphere is super warm and inviting, and the cinnamon rolls are absolutely amazing."
     ],
     formal: [
       "{name} offers a refined coffee experience. The selection of single-origin beans and the precise brewing methods demonstrate a commitment to coffee craft.",
@@ -83,7 +175,20 @@ const REVIEW_TEMPLATES = {
       "A distinguished cafe with an upscale environment. {name} consistently delivers excellent service, premium teas, and sophisticated light bites.",
       "For those who appreciate the finer details of espresso extraction, {name} is the premier choice. The staff is polite, and the setting is impeccably clean.",
       "{name} stands out for its high-quality coffee selection and refined ambiance. Ideal for professionals looking for a premium café experience.",
-      "The service at {name} is prompt and polite, and the product quality is excellent. A highly recommended spot for business discussions over coffee."
+      "The service at {name} is prompt and polite, and the product quality is excellent. A highly recommended spot for business discussions over coffee.",
+      "We had a productive morning meeting at {name}. The quiet atmosphere and professional service provided an excellent environment for discussion.",
+      "An elegant space dedicated to the appreciation of fine coffee. {name} offers rare bean varieties prepared with expert precision.",
+      "The presentation of the beverages at {name} is outstanding. The staff is highly courteous, and the environment is clean and quiet.",
+      "For those seeking a sophisticated cafe environment, {name} is highly recommended. The seating layout allows for private conversations.",
+      "The standards of product quality and service at {name} are exemplary. The matcha latte was prepared with great skill and balance.",
+      "A refined destination for quiet study or professional discussion. {name} offers excellent single-origin pour-overs in a polished setting.",
+      "The quiet decor and polite staff at {name} create a very professional and welcoming atmosphere. The espresso is outstanding.",
+      "We were thoroughly impressed by the knowledge of the baristas at {name}. They explained the origin and flavor notes of our coffee clearly.",
+      "An upscale cafe that maintains an excellent standard of cleanliness and quiet professionalism. {name} is a highly reliable choice.",
+      "The pastries at {name} are sophisticated and pair beautifully with their precisely brewed teas. A very elegant experience.",
+      "A quiet and dignified coffee house. The service at {name} is characterized by polite restraint, and the coffee quality is superb.",
+      "For a premium coffee experience in a professional setting, {name} is the ideal location. The interior design is quiet and modern.",
+      "The commitment to quality at {name} is evident in the preparation of every beverage. Highly professional service and clean surroundings."
     ],
     enthusiastic: [
       "BEST COFFEE EVER! {name} has the absolute friendliest staff and the vibes are unmatched! My absolute favorite spot in the city! ☕🔥",
@@ -93,7 +198,20 @@ const REVIEW_TEMPLATES = {
       "If you're a coffee lover, you NEED to visit {name}! The espresso is top-tier, the music is great, and the atmosphere is so uplifting! ⭐",
       "Absolute perfection in a cup! {name} knows exactly how to make a perfect flat white. The staff is super passionate and the energy here is amazing! 🌟",
       "Everything about {name} is top-notch! The staff, the drinks, the aesthetic - it's a dream come true for anyone who loves cafes! 💖",
-      "I could spend all day at {name}! The pastries are baked to perfection and the iced drinks are refreshing and delicious! ☕🎉"
+      "I could spend all day at {name}! The pastries are baked to perfection and the iced drinks are refreshing and delicious! ☕🎉",
+      "THE BEST CHAI LATTES ON EARTH! {name} has won my heart completely! The vibes are so good and the staff is so friendly! 😍✨",
+      "Oh my god, you have to try the avocado toast here! {name} is doing something incredible. Super fast service and amazing energy! 🥑🔥",
+      "My favorite coffee shop ever! The team at {name} is always so cheerful and the cold brew is absolute perfection! Highly recommend! 🌟",
+      "I am officially obsessed! {name} is beautiful, clean, and serves the most delicious specialty drinks! Best vibe in town! ❤️",
+      "What a fun and energetic spot! The music at {name} is always great, and the baristas are the coolest. 10/10 coffee experience! 🎉☕",
+      "ABSOLUTELY INCREDIBLE! The coffee at {name} is so smooth, and the chocolate croissants are pure heaven! Can't stop visiting! 🥐💖",
+      "If you need a morning boost, go to {name}! The energy here is contagious, the service is fast, and the coffee is legendary! ⭐",
+      "I am in love with the outdoor patio at {name}! The drinks are creative, the staff is amazing, and the vibe is so uplifting! 😍🌟",
+      "BEST SPOT FOR SWEET TREATS! {name} has the most delicious pastries and the iced lattes are out of this world! Love it! 🍰🔥",
+      "My mind is blown by the latte art at {name}! So creative and beautiful! The staff is so sweet and the drinks are delicious! ☕💖",
+      "A total coffee paradise! {name} is absolutely spectacular. The atmosphere is vibrant and the service is super fast! ⭐⭐⭐⭐⭐",
+      "Simply the best! The cold brew at {name} is legendary, and the staff make you feel like family the second you walk in! ❤️🎉",
+      "I could drink the specialty lattes at {name} all day! Such a fun and welcoming team, and the space is absolutely beautiful! 🌟🚀"
     ]
   },
   grocery: {
@@ -105,7 +223,20 @@ const REVIEW_TEMPLATES = {
       "A reliable and clean supermarket. {name} offers a solid range of brands, good fresh seafood, and friendly cashiers who make checkouts pleasant.",
       "I do my weekly shopping at {name} and it's always a good experience. The shelves are well-stocked, and they have excellent sales on meat and produce.",
       "Very neat and well-maintained grocery store. {name} has a great selection of fresh fruits, a helpful customer service desk, and clean restrooms.",
-      "A great neighborhood store. {name} has high-quality produce, a good cheese selection, and the employees are always polite and efficient."
+      "A great neighborhood store. {name} has high-quality produce, a good cheese selection, and the employees are always polite and efficient.",
+      "Had a quick grocery run at {name}. The checkout lines were short and the staff was very friendly. Produce was high quality.",
+      "A solid local store with a great selection of everyday items. The shelves at {name} are always stocked and the prices are fair.",
+      "Really nice deli counter at {name}. The prepared foods are fresh, and it's a great place to pick up a quick lunch while shopping.",
+      "We always shop at {name} because the staff are so helpful and the store is kept very clean. Parking is also a breeze.",
+      "Good variety of organic and specialty options. {name} has competitive pricing and their customer loyalty program is actually worth it.",
+      "The bakery section at {name} is fantastic. Their fresh bread is baked daily and the pricing throughout the store is very reasonable.",
+      "A very organized grocery store. The checkout staff at {name} are always efficient, and they handle long lines very quickly.",
+      "Really enjoy shopping here. {name} has a great selection of local cheeses, fresh seafood, and the staff are always polite.",
+      "Always a clean and pleasant environment at {name}. The produce is displayed beautifully and is always extremely fresh.",
+      "Great selection of international products. {name} makes it easy to find unique ingredients that are hard to find elsewhere.",
+      "The meat department at {name} is excellent. The butchers are helpful and are always happy to prepare specific cuts for you.",
+      "A very reliable local supermarket. {name} has a clean layout, friendly staff, and the prices are always very competitive.",
+      "Love the bulk section at {name}. It's always neat and tidy, and they have a great selection of nuts, grains, and spices."
     ],
     formal: [
       "{name} consistently maintains high standards of sanitation, stock availability, and professional customer service. A highly reliable retail location.",
@@ -115,7 +246,20 @@ const REVIEW_TEMPLATES = {
       "{name} provides a superior grocery shopping experience. The aisles are spacious, the product labeling is clear, and the staff is highly attentive to customer needs.",
       "A professionally managed grocery store with an impressive range of international and organic items. {name} maintains excellent standards throughout.",
       "The quality control at {name} is highly impressive. The produce section is meticulously curated, and the staff is always polite and professional.",
-      "We appreciate the high standards of cleanliness and the professional service at {name}. It is our preferred destination for premium ingredients."
+      "We appreciate the high standards of cleanliness and the professional service at {name}. It is our preferred destination for premium ingredients.",
+      "The management at {name} maintains an exemplary standard of retail organization. The store is clean, quiet, and highly efficient.",
+      "An upscale market offering premium local and imported goods. {name} is highly recommended for those requiring specialized ingredients.",
+      "The checkout process at {name} is conducted with great efficiency and professional courtesy. Highly recommended for busy professionals.",
+      "The seafood department at {name} is outstanding, offering fresh, traceable selections under the guidance of knowledgeable staff.",
+      "We were extremely satisfied with the level of service at the customer desk at {name}. They resolved our inquiry with professional dispatch.",
+      "A meticulously clean and spacious supermarket. {name} offers an impressive selection of organic produce and high-quality dairy items.",
+      "The aisles at {name} are well-designed for a quiet and unhurried shopping experience. Excellent stock availability throughout.",
+      "The quality of the meats and poultry at {name} is consistently high. The department staff are polite and highly professional.",
+      "We appreciate the quiet, organized, and clean environment at {name}. It makes the weekly shopping process highly efficient.",
+      "An exceptional gourmet market. {name} offers a curated selection of fine oils, cheeses, and artisanal breads in a polished setting.",
+      "The sanitation standards at {name} are outstanding. The produce is handled with care and is of the highest quality available.",
+      "Highly recommended for corporate catering supplies. {name} offers premium cheese platters and deli selections prepared to order.",
+      "The customer service at {name} is characterized by polite efficiency. The environment is clean, quiet, and very well-organized."
     ],
     enthusiastic: [
       "My absolute FAVORITE grocery store! {name} has the freshest organic produce and the customer service is unmatched! Love shopping here! 😍🛒",
@@ -125,7 +269,20 @@ const REVIEW_TEMPLATES = {
       "Outstanding selection! {name} has completely transformed my weekly grocery runs. The staff is always so cheerful and the quality is amazing!",
       "A grocery shopper's dream! {name} is incredibly organized, has fantastic deals, and the produce section looks like a work of art! 10/10! 🍉💖",
       "I can't say enough good things about {name}! The staff goes out of their way to help, the selection is huge, and everything is super fresh! ⭐",
-      "Absolutely top-tier! {name} is clean, well-stocked, and has a fantastic selection of specialty health foods. My go-to store forever! 🛒🔥"
+      "Absolutely top-tier! {name} is clean, well-stocked, and has a fantastic selection of specialty health foods. My go-to store forever! 🛒🔥",
+      "THE BAKERY AT {name} IS HEAVEN! The warm croissants are out of this world and the staff is so friendly! 🥐😍",
+      "Oh my god, you have to try the freshly squeezed orange juice here! {name} has the best selection and the nicest cashiers! 🍊🔥",
+      "My absolute favorite place to shop! The team at {name} always makes me smile, and the produce is so fresh and beautiful! 🌟🛒",
+      "I am officially obsessed with the cheese counter at {name}! So many unique options and the staff is incredibly helpful! 🧀💖",
+      "What an awesome grocery store! The aisles at {name} are always clean, the selection is huge, and the prices are great! 🎉",
+      "ABSOLUTELY INCREDIBLE! The prepared foods at {name} are so delicious, and the service is lightning fast! Love this place! 🍱⭐",
+      "If you love organic food, you must go to {name}! The quality is unmatched and the shopping environment is so fun! 😍🌟",
+      "I am in love with the layout of {name}! It is so easy to find everything, and the staff is always so happy to help! 🛒❤️",
+      "BEST SUPERMARKET IN TOWN! {name} has the friendliest team, the freshest meats, and a wonderful selection of flowers! 🌸🔥",
+      "My mind is blown by the international food section at {name}! So many amazing treats! The staff is so sweet! 🍫💖",
+      "A total shopping paradise! {name} is absolutely spectacular. The atmosphere is vibrant and the checkouts are super fast! ⭐⭐⭐⭐⭐",
+      "Simply the best! The customer service at {name} is legendary, and the produce is always fresh and delicious! ❤️🎉",
+      "I could spend hours checking out the new items at {name}! Such a fun and welcoming team, and the store is beautiful! 🌟🚀"
     ]
   },
   clothes: {
@@ -137,7 +294,20 @@ const REVIEW_TEMPLATES = {
       "Really enjoyed my shopping experience at {name}. They have classic styles as well as trendy options, and the atmosphere is relaxed.",
       "Always a reliable spot for casual wear. {name} has soft fabrics, durable clothing, and the staff is always happy to help locate sizes.",
       "Great shopping experience. {name} is clean, organized by category, and has a wonderful collection of everyday outfits at decent prices.",
-      "Really pleasant store. {name} offers nice options for both work and casual wear. The staff was polite and the checkout process was smooth."
+      "Really pleasant store. {name} offers nice options for both work and casual wear. The staff was polite and the checkout process was smooth.",
+      "Had a great shopping trip to {name} today. Found two super comfortable sweaters and the staff was extremely friendly.",
+      "A solid local boutique. {name} has a great selection of casual tees, jeans, and activewear at very reasonable prices.",
+      "Really nice layout at {name}. It is easy to find your size, the mirrors are well-lit, and the staff is very welcoming.",
+      "We always shop here when we need basic wardrobe items. The quality at {name} is consistent and the prices are fair.",
+      "Good variety of designs and very helpful customer service. {name} has plenty of changing rooms so there's never a wait.",
+      "The fabrics at {name} are very soft and comfortable. Perfect for everyday wear, and the staff was very polite.",
+      "A very clean and organized clothing store. The checkout staff at {name} are always efficient and friendly.",
+      "Really enjoy browsing the racks here. {name} has a great selection of seasonal accessories and the vibe is very chill.",
+      "Always a pleasant shopping trip to {name}. The store is kept neat, and they have a great selection of casual footwear.",
+      "Great selection of summer dresses. {name} has very helpful staff who helped me find the perfect size. Will return.",
+      "The clothing at {name} is stylish yet comfortable. The prices are fair and they have a great return policy.",
+      "A very reliable local clothing shop. {name} has a clean layout, friendly staff, and the checkout process is always quick.",
+      "Love the denim selection at {name}. They have many styles and sizes, and the store employees are super helpful."
     ],
     formal: [
       "{name} offers an elegant shopping environment with highly attentive staff, well-crafted fashion items, and exceptional customer service.",
@@ -147,7 +317,20 @@ const REVIEW_TEMPLATES = {
       "{name} maintains an impressive inventory of elegant apparel. The quality of craftsmanship is evident in every garment, and the staff is polite.",
       "A premium clothing store with a focus on quality and fit. The staff at {name} provides tailored assistance in a quiet, sophisticated setting.",
       "The shopping experience at {name} is defined by professional service and premium quality garments. An excellent destination for formal attire.",
-      "We were highly impressed by the curation of the wardrobe collections at {name}. The service was refined and the fitting rooms were comfortable."
+      "We were highly impressed by the curation of the wardrobe collections at {name}. The service was refined and the fitting rooms were comfortable.",
+      "An outstanding boutique for professional and formal wear. The staff at {name} provides meticulous tailoring services to ensure a perfect fit.",
+      "The collections at {name} display a high level of design sophistication. The fabrics are exceptional and the service is highly professional.",
+      "We received outstanding styling advice during our visit to {name}. The environment is quiet, clean, and highly sophisticated.",
+      "For custom suits and formal evening wear, {name} is the premier choice. The consultation was thorough and highly professional.",
+      "A luxury boutique offering timeless designs and superior materials. The service at {name} is attentive without being overbearing.",
+      "The fitting process at {name} was handled with great care and attention to detail. The final garments exceeded our expectations.",
+      "We highly recommend {name} for professional business attire. The fabrics are durable, elegant, and of the highest caliber.",
+      "The store layout at {name} is elegant and allows for a quiet and private shopping experience. Excellent customer service.",
+      "The sales associates at {name} are highly trained in fashion curation. They provided excellent recommendations for our formal event.",
+      "An exceptional shopping experience characterized by quiet luxury, exquisite designs, and polite, professional staff. {name} is top-tier.",
+      "The alterations team at {name} did a magnificent job. The suit fits perfectly and the service was completed on schedule.",
+      "For sophisticated winter coats and formal outerwear, {name} is highly recommended. The quality of the wool is superb.",
+      "The customer relations at {name} are exemplary. The staff is polite, professional, and dedicated to guest satisfaction."
     ],
     enthusiastic: [
       "OH MY GOSH! I wanted to buy the whole store! {name} has the most fashionable clothes and the staff is so helpful and sweet! 👗✨",
@@ -157,7 +340,20 @@ const REVIEW_TEMPLATES = {
       "Absolutely gorgeous designs! {name} has the most stunning dresses and accessories. The customer service is top-tier and the shopping vibe is so fun!",
       "If you need a wardrobe makeover, you must visit {name}! The styles are fresh and trendy, and the staff will help you style the perfect look! ❤️",
       "So many compliments on the outfit I bought from {name}! The store is beautiful, the selection is curated perfectly, and I had the best time! 🌟",
-      "A fashion lover's paradise! {name} is packed with beautiful, high-quality pieces. The shopping experience is always an absolute joy! 🛍️🔥"
+      "A fashion lover's paradise! {name} is packed with beautiful, high-quality pieces. The shopping experience is always an absolute joy! 🛍️🔥",
+      "THE COZIEST SWEATERS EVER! I am absolutely in love with {name}! The staff is so sweet and the store is beautiful! 😍✨",
+      "Oh my god, the accessories here are to die for! {name} has the absolute best selection and the coolest vibes! 💍🔥",
+      "My new favorite boutique! The team at {name} always helps me find the perfect outfits, and they are so fun to talk to! 🌟🛍️",
+      "I am officially obsessed with the shoe collection at {name}! So many gorgeous options and the quality is amazing! 👠💖",
+      "What a fun and stylish store! The dressing rooms at {name} are huge, the music is great, and the clothes are gorgeous! 🎉",
+      "ABSOLUTELY INCREDIBLE! The customer service at {name} is top-tier, and I am so happy with my purchases! ⭐🛍️",
+      "If you want to stand out, shop at {name}! The styles are so unique and the shopping experience is incredibly fun! 😍🌟",
+      "I am in love with the shopping environment at {name}! Everything is displayed beautifully, and the staff is so friendly! 👗❤️",
+      "BEST CLOTHING STORE IN TOWN! {name} has the friendliest team, the softest fabrics, and a wonderful atmosphere! 👚🔥",
+      "My mind is blown by the denim collection at {name}! The fit is absolutely perfect! The staff is so sweet! 👖💖",
+      "A total fashion paradise! {name} is absolutely spectacular. The atmosphere is vibrant and the checkouts are super fast! ⭐⭐⭐⭐⭐",
+      "Simply the best! The styling advice at {name} is legendary, and the clothes are always high quality and beautiful! ❤️🎉",
+      "I could spend hours trying on different looks at {name}! Such a fun and welcoming team, and the boutique is gorgeous! 🌟🚀"
     ]
   },
   salon: {
@@ -169,7 +365,20 @@ const REVIEW_TEMPLATES = {
       "Got my hair done at {name} and I'm very happy with the results. The stylist was experienced and gave great tips on hair care.",
       "Highly recommend {name}. The salon is neat, the staff is polite, and they make sure you are comfortable throughout your entire appointment.",
       "A great neighborhood salon. {name} has a relaxed atmosphere, friendly stylists, and they always do a professional job on my hair/nails.",
-      "Very satisfied with my visit to {name}. The service was prompt, the staff was attentive, and the results were exactly what I hoped for."
+      "Very satisfied with my visit to {name}. The service was prompt, the staff was attentive, and the results were exactly what I hoped for.",
+      "Had a really nice pedicure at {name} today. The massage chairs were great and the staff was extremely friendly.",
+      "A solid local spa. {name} has a great selection of facial treatments and the pricing is very reasonable.",
+      "Really nice layout at {name}. It is quiet and clean, and the staff makes you feel welcome right away.",
+      "We always go here for family haircuts. The stylists at {name} are patient with kids and do a great job.",
+      "Good quality products and very helpful customer service. {name} is always kept in immaculate condition.",
+      "The hair wash at {name} was so relaxing. The scalp massage was amazing, and the staff was very polite.",
+      "A very clean and organized beauty salon. The front desk staff at {name} are always efficient and friendly.",
+      "Really enjoy my appointments here. {name} has a great selection of nail colors and the vibe is very chill.",
+      "Always a pleasant visit to {name}. The facility is kept clean, and they have a great selection of retail products.",
+      "Great experience with my new haircut. The stylist at {name} was very helpful and gave me styling tips. Will return.",
+      "The services at {name} are excellent and the prices are fair. They have a very accommodating scheduling system.",
+      "A very reliable local salon. {name} has a clean layout, friendly staff, and the treatments are always done professionally.",
+      "Love the styling team at {name}. They are always polite, helpful, and make sure you leave happy."
     ],
     formal: [
       "The service at {name} is highly professional and meticulously executed. I am extremely satisfied with the level of care and attention to detail.",
@@ -179,7 +388,20 @@ const REVIEW_TEMPLATES = {
       "A truly professional establishment. {name} offers high-end services using premium products in a quiet and relaxing atmosphere.",
       "My appointment at {name} was handled with the utmost professionalism. The consultation was thorough and the execution was flawless.",
       "The standards of hygiene and customer service at {name} are impeccable. An excellent choice for anyone seeking high-quality salon services.",
-      "We highly appreciate the professional standards and polite staff at {name}. The services provided are consistently of the highest quality."
+      "We highly appreciate the professional standards and polite staff at {name}. The services provided are consistently of the highest quality.",
+      "An outstanding establishment for advanced skincare and beauty therapies. The practitioners at {name} exhibit great clinical professionalism.",
+      "The technical execution of the color services at {name} is exceptional. The results are natural, durable, and highly sophisticated.",
+      "We received exemplary care during our spa day at {name}. The environment is tranquil, clean, and meticulously organized.",
+      "For restorative massage and body treatments, {name} is the premier choice. The therapists are highly trained professionals.",
+      "A luxury salon offering premium services and high-quality products. The service at {name} is attentive and highly professional.",
+      "The booking process at {name} was handled with great professional courtesy. The treatment rooms are elegant and clean.",
+      "We highly recommend {name} for formal styling and bridal services. The execution is flawless and the staff is highly polite.",
+      "The salon interior at {name} is beautifully designed, offering a tranquil and private experience for all clients. Excellent service.",
+      "The specialists at {name} are highly knowledgeable in trichology and hair health. They provided excellent advice during our consultation.",
+      "An exceptional wellness experience characterized by quiet luxury, pristine facilities, and highly professional staff. {name} is top-tier.",
+      "The manicure and nail care team at {name} did a magnificent job. The service was executed with great detail and precision.",
+      "For advanced hair restoration and conditioning treatments, {name} is highly recommended. The products used are of superior quality.",
+      "The client service at {name} is characterized by polite efficiency. The environment is clean, quiet, and highly professional."
     ],
     enthusiastic: [
       "I feel like a brand new person! The team at {name} is incredibly talented, super sweet, and absolutely nailed my look! LOVE IT! 💇‍♀️💖",
@@ -189,7 +411,20 @@ const REVIEW_TEMPLATES = {
       "An absolute dream of a salon! {name} has the best vibes, the staff makes you feel like a star, and the quality of work is outstanding! ⭐",
       "If you want to look and feel amazing, you need to book an appointment at {name} immediately! Absolutely phenomenal service! 💇‍♀️🔥",
       "Best salon experience of my life! {name} has the most talented stylists, the service is top-notch, and the salon itself is beautiful! 💖🌟",
-      "Unbelievable results! {name} exceeded all my expectations. The staff is incredibly knowledgeable and they make the experience so special! 😍"
+      "Unbelievable results! {name} exceeded all my expectations. The staff is incredibly knowledgeable and they make the experience so special! 😍",
+      "THE SHAMPOO MASSAGE WAS HEAVEN! I am absolutely in love with {name}! The staff is so sweet and the salon is beautiful! 💆‍♀️✨",
+      "Oh my god, the nail art here is to die for! {name} has the absolute best selection and the coolest stylists! 💅🔥",
+      "My new favorite salon! The team at {name} always helps me find the perfect look, and they are so fun to talk to! 🌟💇‍♀️",
+      "I am officially obsessed with the facial treatments at {name}! So relaxing and my skin looks absolutely gorgeous! 🌸💖",
+      "What a fun and luxurious spa! The treatment rooms at {name} are beautiful, the music is relaxing, and the staff is amazing! 🎉",
+      "ABSOLUTELY INCREDIBLE! The customer service at {name} is top-tier, and I am so happy with my new hair color! ⭐💇‍♀️",
+      "If you want to be pampered, go to {name}! The services are top-notch and the spa environment is incredibly fun! 😍🌟",
+      "I am in love with the relaxing environment at {name}! Everything is clean and beautiful, and the staff is so friendly! 🌸❤️",
+      "BEST BEAUTY SALON IN TOWN! {name} has the friendliest team, the best products, and a wonderful atmosphere! 💇‍♀️🔥",
+      "My mind is blown by the makeup services at {name}! The results were absolutely perfect! The staff is so sweet! 💄💖",
+      "A total pampering paradise! {name} is absolutely spectacular. The atmosphere is vibrant and the service is super fast! ⭐⭐⭐⭐⭐",
+      "Simply the best! The styling advice at {name} is legendary, and the treatments are always high quality and relaxing! ❤️🎉",
+      "I could spend all day getting pampered at {name}! Such a fun and welcoming team, and the salon is gorgeous! 🌟🚀"
     ]
   },
   store: {
@@ -201,7 +436,20 @@ const REVIEW_TEMPLATES = {
       "Really pleasant local store. {name} has a nice neighborhood feel, friendly cashiers, and carries a good mix of everyday essentials.",
       "I drop by {name} quite often and the customer service is always solid. The store is well-organized and the prices are fair.",
       "Great variety and convenient location. {name} is always neat, the shelves are well-stocked, and the staff is helpful and polite.",
-      "A very reliable store for all your daily needs. {name} has friendly employees, a clean layout, and checkout is usually quick."
+      "A very reliable store for all your daily needs. {name} has friendly employees, a clean layout, and checkout is usually quick.",
+      "Had a great shopping trip to {name} today. Found everything on my list and the staff was extremely friendly.",
+      "A solid local retail shop. {name} has a great selection of household items and tools at very reasonable prices.",
+      "Really nice layout at {name}. It is easy to find what you need, the aisles are wide, and the staff is welcoming.",
+      "We always shop here when we need basic home goods. The quality at {name} is consistent and the prices are fair.",
+      "Good variety of products and very helpful customer service. {name} has a convenient customer return desk.",
+      "The products at {name} are well-made and durable. Perfect for daily use, and the staff was very polite.",
+      "A very clean and organized store. The checkout staff at {name} are always efficient and friendly.",
+      "Really enjoy browsing the shelves here. {name} has a great selection of gifts and the vibe is very chill.",
+      "Always a pleasant shopping trip to {name}. The store is kept neat, and they have a great selection of local products.",
+      "Great selection of stationery. {name} has very helpful staff who helped me find the right supplies. Will return.",
+      "The inventory at {name} is useful and reasonably priced. The store has a great return policy.",
+      "A very reliable local retail store. {name} has a clean layout, friendly staff, and the checkout process is always quick.",
+      "Love the selection at {name}. They have many brands and sizes, and the store employees are super helpful."
     ],
     formal: [
       "{name} provides a curated shopping experience with exceptional customer service and premium quality goods. Highly recommended.",
@@ -211,7 +459,20 @@ const REVIEW_TEMPLATES = {
       "The management and staff at {name} are to be commended for their professional service and commitment to customer satisfaction.",
       "A sophisticated retail store offering premium products. The staff at {name} is attentive and polite, providing excellent service.",
       "We were thoroughly impressed by the organization and quality of products at {name}. A highly professional and reliable business.",
-      "The customer service at {name} is exemplary. The environment is professional, and the product selection is of superior caliber."
+      "The customer service at {name} is exemplary. The environment is professional, and the product selection is of superior caliber.",
+      "An outstanding store for corporate gifts and premium products. The staff at {name} provides meticulous gift wrapping services.",
+      "The inventory at {name} displays a high level of curation. The products are exceptional and the service is highly professional.",
+      "We received outstanding product advice during our visit to {name}. The environment is quiet, clean, and highly sophisticated.",
+      "For high-end electronics and accessories, {name} is the premier choice. The consultation was thorough and highly professional.",
+      "A luxury retail store offering timeless designs and superior materials. The service at {name} is attentive and polite.",
+      "The purchase process at {name} was handled with great care and attention to detail. The final products exceeded our expectations.",
+      "We highly recommend {name} for quality home furnishings. The items are durable, elegant, and of the highest caliber.",
+      "The store layout at {name} is elegant and allows for a quiet and private shopping experience. Excellent customer service.",
+      "The sales consultants at {name} are highly trained in product curation. They provided excellent recommendations for our office.",
+      "An exceptional retail experience characterized by quiet luxury, exquisite products, and polite, professional staff. {name} is top-tier.",
+      "The delivery team at {name} did a magnificent job. The items were delivered safely and the service was completed on schedule.",
+      "For sophisticated winter gear and travel accessories, {name} is highly recommended. The quality is superb.",
+      "The customer relations at {name} are exemplary. The staff is polite, professional, and dedicated to guest satisfaction."
     ],
     enthusiastic: [
       "MY FAVORITE STORE! {name} has the absolute coolest items and the staff are always so helpful and fun! Highly, highly recommend! ⭐⭐⭐⭐⭐",
@@ -221,7 +482,20 @@ const REVIEW_TEMPLATES = {
       "I am obsessed with {name}! The store has the best vibes, the staff is super helpful, and they always have new and exciting items! 💖",
       "Absolute gem of a store! {name} has won me over with their amazing customer service and high-quality products. Love it! 🛍️🔥",
       "If you haven't shopped at {name} yet, you are missing out on a shopping adventure! The staff is awesome and the store is beautiful! ⭐",
-      "Everything about {name} is perfect! The layout, the staff, the products - I always leave with a smile and great purchases! 🎉😍"
+      "Everything about {name} is perfect! The layout, the staff, the products - I always leave with a smile and great purchases! 🎉😍",
+      "THE COOLEST GIFTS EVER! I am absolutely in love with {name}! The staff is so sweet and the store is beautiful! 😍✨",
+      "Oh my god, the items here are to die for! {name} has the absolute best selection and the coolest vibes! 🎁🔥",
+      "My new favorite retail store! The team at {name} always helps me find the perfect items, and they are so fun to talk to! 🌟🛍️",
+      "I am officially obsessed with the home decor at {name}! So many gorgeous options and the quality is amazing! 🏡💖",
+      "What a fun and vibrant store! The aisles at {name} are wide, the music is great, and the products are gorgeous! 🎉",
+      "ABSOLUTELY INCREDIBLE! The customer service at {name} is top-tier, and I am so happy with my purchases! ⭐🛍️",
+      "If you want unique gadgets, shop at {name}! The selection is so cool and the shopping experience is incredibly fun! 😍🌟",
+      "I am in love with the shopping environment at {name}! Everything is displayed beautifully, and the staff is so friendly! 📦❤️",
+      "BEST RETAIL STORE IN TOWN! {name} has the friendliest team, the best products, and a wonderful atmosphere! 🛒🔥",
+      "My mind is blown by the collection at {name}! The variety is absolutely perfect! The staff is so sweet! 🌟💖",
+      "A total retail paradise! {name} is absolutely spectacular. The atmosphere is vibrant and the checkouts are super fast! ⭐⭐⭐⭐⭐",
+      "Simply the best! The product advice at {name} is legendary, and the items are always high quality and beautiful! ❤️🎉",
+      "I could spend hours checking out the new arrivals at {name}! Such a fun and welcoming team, and the store is gorgeous! 🌟🚀"
     ]
   },
   other: {
@@ -233,7 +507,20 @@ const REVIEW_TEMPLATES = {
       "A very reliable and friendly business. {name} took care of everything quickly and efficiently. Appreciate the great service!",
       "Really glad I chose {name}. The service was prompt, the staff was polite, and the pricing was clear with no hidden fees.",
       "Excellent customer service and solid work. {name} is dependable, friendly, and very easy to communicate with. Will use again.",
-      "Very happy with the service provided by {name}. They were on time, did a clean job, and the staff was extremely courteous."
+      "Very happy with the service provided by {name}. They were on time, did a clean job, and the staff was extremely courteous.",
+      "Had a great experience working with {name} today. The project was completed on time and the team was extremely friendly.",
+      "A solid local business. {name} has a great team and their services are offered at very reasonable rates.",
+      "Really nice communication from {name}. They kept us updated throughout the entire process and were very welcoming.",
+      "We always hire {name} when we need help with maintenance. The quality is consistent and the prices are fair.",
+      "Good variety of services and very helpful customer care. {name} has a very simple booking process.",
+      "The results from {name} are durable and high quality. Perfect for daily operations, and the staff was very polite.",
+      "A very professional and organized company. The service team at {name} is always efficient and friendly.",
+      "Really enjoy working with this team. {name} has a great approach to customer service and the vibe is very chill.",
+      "Always a pleasant experience with {name}. The staff is kept professional, and they have a great range of options.",
+      "Great consultation session. {name} has very helpful experts who helped me find the right solution. Will return.",
+      "The solutions from {name} are practical and reasonably priced. The company has a great guarantee policy.",
+      "A very reliable local service provider. {name} has a clear process, friendly staff, and the work is completed quickly.",
+      "Love the support team at {name}. They are always polite, helpful, and make sure your questions are resolved."
     ],
     formal: [
       "The service rendered by {name} was of the highest professional standard. I commend their dedication, efficiency, and clear communication.",
@@ -243,7 +530,20 @@ const REVIEW_TEMPLATES = {
       "An exceptionally professional business. {name} delivers excellent results with clear documentation and polite customer support.",
       "We were thoroughly impressed by the high standards of execution and professional communication maintained by {name}.",
       "{name} consistently provides reliable, high-caliber services. Their staff is knowledgeable, polite, and dedicated to excellence.",
-      "I am pleased to write this recommendation for {name}. Their work is characterized by thoroughness, professionalism, and integrity."
+      "I am pleased to write this recommendation for {name}. Their work is characterized by thoroughness, professionalism, and integrity.",
+      "An outstanding organization for consulting and technical support. The engineers at {name} exhibit great professional diligence.",
+      "The execution of the contract services by {name} was exceptional. The project was completed within budget and to high specifications.",
+      "We received exemplary support during our integration project with {name}. The process was structured, clean, and highly organized.",
+      "For advanced technical solutions and corporate support, {name} is the premier choice. The consultants are highly qualified.",
+      "A premium service provider offering customized solutions and high-quality results. The relationship management at {name} is polite.",
+      "The planning phase with {name} was handled with great care and attention to detail. The execution met all project requirements.",
+      "We highly recommend {name} for commercial operations. The workflows are structured, transparent, and of the highest efficiency.",
+      "The communication channels at {name} are well-designed, allowing for a quiet and highly structured project flow. Excellent service.",
+      "The specialists at {name} are highly knowledgeable in compliance and regulation. They provided excellent advice during our audit.",
+      "An exceptional corporate partner characterized by professional execution, clear reporting, and polite staff. {name} is top-tier.",
+      "The quality assurance team at {name} did a magnificent job. The testing was thorough and the documentation was delivered on schedule.",
+      "For specialized training and professional development services, {name} is highly recommended. The instructors are superb.",
+      "The client management at {name} is characterized by polite efficiency. The environment is professional, quiet, and highly organized."
     ],
     enthusiastic: [
       "Absolutely FANTASTIC service from {name}! They went above and beyond in every way possible! Will definitely use them again! 10/10! 🌟🔥",
@@ -253,7 +553,20 @@ const REVIEW_TEMPLATES = {
       "Outstanding experience! {name} is absolute perfection. They are professional, friendly, and deliver results that exceed expectations! 🌟",
       "If you need this service, do not hesitate to contact {name}! They are absolute legends and did a spectacular job for us! 😍🎉",
       "Amazing team and spectacular results! {name} made the whole process super easy, stress-free, and fun! Love their energy! 💖⭐",
-      "Absolutely brilliant! {name} did an amazing job and their customer support is the friendliest I've ever encountered! 10/10! 🔥🌟"
+      "Absolutely brilliant! {name} did an amazing job and their customer support is the friendliest I've ever encountered! 10/10! 🔥🌟",
+      "THE BEST CUSTOMER EXPERIENCE OF MY LIFE! I am absolutely in love with {name}! The staff is so sweet and the results are beautiful! 😍✨",
+      "Oh my god, the quality here is to die for! {name} has the absolute best team and the coolest support channels! 🛠️🔥",
+      "My new favorite service provider! The team at {name} always helps me find the perfect options, and they are so fun to work with! 🌟🤝",
+      "I am officially obsessed with the custom solutions at {name}! So fast and the results are absolutely perfect! 📈💖",
+      "What a fun and professional company! The consultations at {name} are awesome, the staff is energetic, and the work is gorgeous! 🎉",
+      "ABSOLUTELY INCREDIBLE! The support team at {name} is top-tier, and I am so happy with the final outcome! ⭐🙌",
+      "If you want to be wowed, go to {name}! The services are top-notch and the business environment is incredibly fun! 😍🌟",
+      "I am in love with the friendly environment at {name}! Everything is clean and beautiful, and the team is so friendly! 💖❤️",
+      "BEST SERVICE TEAM IN TOWN! {name} has the friendliest experts, the best solutions, and a wonderful atmosphere! 🛠️🔥",
+      "My mind is blown by the speed of {name}! The results were absolutely perfect! The staff is so sweet! 🚀💖",
+      "A total service paradise! {name} is absolutely spectacular. The atmosphere is vibrant and the results are delivered super fast! ⭐⭐⭐⭐⭐",
+      "Simply the best! The guidance at {name} is legendary, and the work is always high quality and reliable! ❤️🎉",
+      "I could spend all day working with the team at {name}! Such a fun and welcoming crew, and their tools are gorgeous! 🌟🚀"
     ]
   }
 };
