@@ -258,6 +258,40 @@ app.delete("/api/places/:id", async (req, res) => {
   }
 });
 
+// Update place details
+app.put("/api/places/:id", upload.single("image"), async (req, res) => {
+  try {
+    const id = req.params.id;
+    const { name, category, address, description, google_review_url, tone } = req.body;
+    let imageUrl = req.body.image_url;
+
+    if (req.file) {
+      imageUrl = `${req.protocol}://${req.get("host")}/uploads/${req.file.filename}`;
+    }
+
+    await query(
+      `UPDATE places 
+       SET name = ?, category = ?, address = ?, description = ?, google_review_url = ?, image_url = ?, tone = ? 
+       WHERE id = ?`,
+      [name, category, address || "", description || "", google_review_url || "", imageUrl || "", tone || "casual", id]
+    );
+
+    // Fetch the updated place
+    const rows = await query("SELECT * FROM places WHERE id = ?", [id]);
+    if (rows.length === 0) return res.status(404).json({ error: "Not found" });
+    const place = rows[0];
+
+    res.json({
+      ...place,
+      id: String(place.id),
+      reviews: place.reviews ? JSON.parse(place.reviews) : []
+    });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: "Failed to update place" });
+  }
+});
+
 // --- PUBLIC ROUTES (QR SCANS) ---
 
 // Public get place by slug or ID

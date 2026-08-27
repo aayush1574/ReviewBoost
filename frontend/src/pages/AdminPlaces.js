@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 import axios from 'axios';
@@ -12,11 +12,7 @@ export default function AdminPlaces() {
   const [places, setPlaces] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    fetchPlaces();
-  }, []);
-
-  const fetchPlaces = async () => {
+  const fetchPlaces = useCallback(async () => {
     try {
       const { data } = await axios.get(`${API}/places`, { headers: getHeaders(), withCredentials: true });
       setPlaces(data);
@@ -24,7 +20,13 @@ export default function AdminPlaces() {
       console.error('Failed to fetch places', err);
     }
     setLoading(false);
-  };
+  }, [getHeaders]);
+
+  useEffect(() => {
+    fetchPlaces();
+    const interval = setInterval(fetchPlaces, 3000);
+    return () => clearInterval(interval);
+  }, [fetchPlaces]);
 
   const deletePlace = async (id) => {
     if (!window.confirm('Are you sure you want to delete this place?')) return;

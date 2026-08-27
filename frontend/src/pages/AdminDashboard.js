@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 import axios from 'axios';
@@ -12,11 +12,7 @@ export default function AdminDashboard() {
   const [stats, setStats] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    fetchStats();
-  }, []);
-
-  const fetchStats = async () => {
+  const fetchStats = useCallback(async () => {
     try {
       const { data } = await axios.get(`${API}/analytics/overview`, { headers: getHeaders(), withCredentials: true });
       setStats(data);
@@ -24,7 +20,13 @@ export default function AdminDashboard() {
       console.error('Failed to fetch stats', err);
     }
     setLoading(false);
-  };
+  }, [getHeaders]);
+
+  useEffect(() => {
+    fetchStats();
+    const interval = setInterval(fetchStats, 3000);
+    return () => clearInterval(interval);
+  }, [fetchStats]);
 
   const handleLogout = async () => {
     await logout();

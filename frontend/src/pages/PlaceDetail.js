@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 import axios from 'axios';
@@ -8,6 +8,7 @@ import { Input } from '../components/ui/input';
 import { Label } from '../components/ui/label';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '../components/ui/tabs';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../components/ui/select';
+import { Textarea } from '../components/ui/textarea';
 
 const API = `${process.env.REACT_APP_BACKEND_URL}/api`;
 
@@ -25,23 +26,73 @@ export default function PlaceDetail() {
   const [loading, setLoading] = useState(true);
   const [regenerating, setRegenerating] = useState(false);
   const [selectedTone, setSelectedTone] = useState('');
+  const [editName, setEditName] = useState('');
+  const [editCategory, setEditCategory] = useState('');
+  const [editAddress, setEditAddress] = useState('');
+  const [editDescription, setEditDescription] = useState('');
+  const [editGoogleReviewUrl, setEditGoogleReviewUrl] = useState('');
+  const [editImageFile, setEditImageFile] = useState(null);
+  const [editImageUrl, setEditImageUrl] = useState('');
+  const [saving, setSaving] = useState(false);
   const qrRef = useRef(null);
 
   const qrUrl = place ? `${window.location.origin}/r/${place.slug}` : '';
 
-  useEffect(() => {
-    fetchPlace();
-  }, [id]);
-
-  const fetchPlace = async () => {
+  const fetchPlace = useCallback(async () => {
     try {
       const { data } = await axios.get(`${API}/places/${id}`, { headers: getHeaders(), withCredentials: true });
       setPlace(data);
       setSelectedTone(data.tone || 'casual');
+      setEditName(data.name || '');
+      setEditCategory(data.category || '');
+      setEditAddress(data.address || '');
+      setEditDescription(data.description || '');
+      setEditGoogleReviewUrl(data.google_review_url || '');
+      setEditImageUrl(data.image_url || '');
     } catch {
       navigate('/admin/places');
     }
     setLoading(false);
+  }, [id, getHeaders, navigate]);
+
+  useEffect(() => {
+    fetchPlace();
+  }, [fetchPlace]);
+
+  const handleUpdatePlace = async (e) => {
+    e.preventDefault();
+    setSaving(true);
+    try {
+      const formData = new FormData();
+      formData.append('name', editName);
+      formData.append('category', editCategory);
+      formData.append('address', editAddress);
+      formData.append('description', editDescription);
+      formData.append('google_review_url', editGoogleReviewUrl);
+      formData.append('tone', selectedTone);
+      
+      if (editImageFile) {
+        formData.append('image', editImageFile);
+      } else {
+        formData.append('image_url', editImageUrl);
+      }
+
+      const { data } = await axios.put(`${API}/places/${id}`, formData, {
+        headers: {
+          ...getHeaders(),
+          'Content-Type': 'multipart/form-data'
+        },
+        withCredentials: true
+      });
+
+      setPlace(data);
+      setEditImageUrl(data.image_url);
+      alert('Place details updated successfully!');
+    } catch (err) {
+      console.error(err);
+      alert('Failed to update place details');
+    }
+    setSaving(false);
   };
 
   const regenerateReviews = async (tone) => {
@@ -145,6 +196,7 @@ export default function PlaceDetail() {
           <TabsList className="bg-white border-2 border-slate-900 rounded-xl p-1 neo-shadow-sm">
             <TabsTrigger value="qr" className="font-['Work_Sans'] font-semibold rounded-lg data-[state=active]:bg-[#FF5722] data-[state=active]:text-white">QR Code</TabsTrigger>
             <TabsTrigger value="reviews" className="font-['Work_Sans'] font-semibold rounded-lg data-[state=active]:bg-[#FF5722] data-[state=active]:text-white">Reviews ({place.reviews?.length || 0})</TabsTrigger>
+            <TabsTrigger value="edit" className="font-['Work_Sans'] font-semibold rounded-lg data-[state=active]:bg-[#FF5722] data-[state=active]:text-white">Edit Details</TabsTrigger>
           </TabsList>
 
           <TabsContent value="qr">
@@ -240,6 +292,111 @@ export default function PlaceDetail() {
                 </div>
               ))}
             </div>
+          </TabsContent>
+
+          <TabsContent value="edit">
+            <form onSubmit={handleUpdatePlace} className="space-y-6" data-testid="edit-place-form">
+              <div className="bg-white border-2 border-slate-900 rounded-xl p-6 neo-shadow space-y-5">
+                <div>
+                  <Label className="font-['Work_Sans'] font-semibold text-slate-900">Business Name *</Label>
+                  <Input
+                    data-testid="edit-place-name-input"
+                    value={editName}
+                    onChange={(e) => setEditName(e.target.value)}
+                    placeholder="e.g. Grand Palace Hotel"
+                    required
+                    className="mt-1 border-2 border-slate-300 focus:border-[#FF5722] rounded-xl h-12 font-['Work_Sans']"
+                  />
+                </div>
+
+                <div>
+                  <Label className="font-['Work_Sans'] font-semibold text-slate-900">Category *</Label>
+                  <Select value={editCategory} onValueChange={(val) => setEditCategory(val)}>
+                    <SelectTrigger className="mt-1 border-2 border-slate-300 rounded-xl h-12 font-['Work_Sans']">
+                      <SelectValue />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="salon">Salons & Spas</SelectItem>
+                      <SelectItem value="restaurant">Restaurants</SelectItem>
+                      <SelectItem value="cafe">Cafes</SelectItem>
+                      <SelectItem value="hotel">Hotels & Resorts</SelectItem>
+                      <SelectItem value="hospital">Hospitals & Clinics</SelectItem>
+                      <SelectItem value="nail_salon">Nail Art Studios</SelectItem>
+                      <SelectItem value="service">Service Providers</SelectItem>
+                      <SelectItem value="store">Retail Stores</SelectItem>
+                      <SelectItem value="grocery">Grocery Store</SelectItem>
+                      <SelectItem value="clothes">Clothing Boutique</SelectItem>
+                      <SelectItem value="gym">Gyms & Fitness Centers</SelectItem>
+                      <SelectItem value="real_estate">Real Estate Agencies</SelectItem>
+                      <SelectItem value="education">Educational Institutions</SelectItem>
+                      <SelectItem value="event_planner">Event Planners</SelectItem>
+                      <SelectItem value="ecommerce">E-commerce Sellers</SelectItem>
+                      <SelectItem value="marketing">Marketers</SelectItem>
+                      <SelectItem value="corporate">Corporate Offices</SelectItem>
+                      <SelectItem value="freelance">Freelancers & Small Business Owners</SelectItem>
+                      <SelectItem value="other">Other / General</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
+
+                <div>
+                  <Label className="font-['Work_Sans'] font-semibold text-slate-900">Address</Label>
+                  <Input
+                    data-testid="edit-place-address-input"
+                    value={editAddress}
+                    onChange={(e) => setEditAddress(e.target.value)}
+                    placeholder="e.g. 123 Main St, New York"
+                    className="mt-1 border-2 border-slate-300 focus:border-[#FF5722] rounded-xl h-12 font-['Work_Sans']"
+                  />
+                </div>
+
+                <div>
+                  <Label className="font-['Work_Sans'] font-semibold text-slate-900">Description</Label>
+                  <Textarea
+                    data-testid="edit-place-description-input"
+                    value={editDescription}
+                    onChange={(e) => setEditDescription(e.target.value)}
+                    placeholder="Describe your business..."
+                    className="mt-1 border-2 border-slate-300 focus:border-[#FF5722] rounded-xl min-h-[100px] font-['Work_Sans']"
+                  />
+                </div>
+
+                <div>
+                  <Label className="font-['Work_Sans'] font-semibold text-slate-900">Google Maps Review Link</Label>
+                  <Input
+                    data-testid="edit-place-review-url-input"
+                    value={editGoogleReviewUrl}
+                    onChange={(e) => setEditGoogleReviewUrl(e.target.value)}
+                    placeholder="https://g.page/r/..."
+                    className="mt-1 border-2 border-slate-300 focus:border-[#FF5722] rounded-xl h-12 font-['Work_Sans']"
+                  />
+                </div>
+
+                <div>
+                  <Label className="font-['Work_Sans'] font-semibold text-slate-900">Cover Image</Label>
+                  <Input
+                    type="file"
+                    accept="image/*"
+                    onChange={(e) => setEditImageFile(e.target.files[0])}
+                    className="mt-1 border-2 border-slate-300 focus:border-[#FF5722] rounded-xl h-12 font-['Work_Sans'] bg-white"
+                  />
+                  {editImageUrl && !editImageFile && (
+                    <div className="mt-2 text-xs text-slate-500 font-['Work_Sans'] flex items-center gap-2">
+                      <span>Current cover image:</span>
+                      <a href={editImageUrl} target="_blank" rel="noopener noreferrer" className="text-[#FF5722] hover:underline font-semibold">View Image</a>
+                    </div>
+                  )}
+                </div>
+
+                <button
+                  type="submit"
+                  disabled={saving}
+                  className="w-full bg-[#FF5722] text-white border-2 border-slate-900 rounded-xl py-4 font-bold text-lg hover:-translate-y-0.5 transition-all neo-shadow font-['Work_Sans'] flex items-center justify-center gap-2 disabled:opacity-60"
+                >
+                  {saving ? 'Saving changes...' : 'Save Changes'}
+                </button>
+              </div>
+            </form>
           </TabsContent>
         </Tabs>
       </div>
