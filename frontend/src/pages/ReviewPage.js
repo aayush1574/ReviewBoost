@@ -9,21 +9,35 @@ export default function ReviewPage() {
   const { slug } = useParams();
   const [place, setPlace] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [fetchingReviews, setFetchingReviews] = useState(false);
+  const [selectedTone, setSelectedTone] = useState('');
   const [copiedIndex, setCopiedIndex] = useState(null);
   const [error, setError] = useState('');
 
   useEffect(() => {
     const fetchPlace = async () => {
       try {
-        const { data } = await axios.get(`${API}/public/place/${slug}`);
+        const url = selectedTone ? `${API}/public/place/${slug}?tone=${selectedTone}` : `${API}/public/place/${slug}`;
+        const { data } = await axios.get(url);
         setPlace(data);
+        if (!selectedTone) {
+          setSelectedTone(data.tone || 'casual');
+        }
       } catch {
         setError('Place not found');
       }
       setLoading(false);
+      setFetchingReviews(false);
     };
     fetchPlace();
-  }, [slug]);
+  }, [slug, selectedTone]);
+
+  const handleToneChange = (tone) => {
+    if (tone === selectedTone) return;
+    setFetchingReviews(true);
+    setCopiedIndex(null);
+    setSelectedTone(tone);
+  };
 
   const handleCopyAndRedirect = async (review, index) => {
     try {
@@ -108,30 +122,54 @@ export default function ReviewPage() {
         <p className="text-sm text-slate-500 font-['Work_Sans'] mb-4 text-center">
           Tap a review to copy it, then post it on Google
         </p>
-        <div className="space-y-4">
-          {place.reviews?.map((review, index) => (
-            <div
-              key={index}
-              data-testid={`review-card-${index}`}
-              onClick={() => handleCopyAndRedirect(review, index)}
-              className={`bg-white border-2 rounded-2xl p-5 cursor-pointer transition-all ${
-                copiedIndex === index
-                  ? 'border-[#064E3B] bg-[#A7F3D0] copy-pulse neo-shadow-sm'
-                  : 'border-slate-900 neo-shadow hover:-translate-y-1'
+
+        {/* Tone Selector */}
+        <div className="flex gap-2 mb-6 justify-center">
+          {['casual', 'formal', 'enthusiastic'].map((tone) => (
+            <button
+              key={tone}
+              onClick={() => handleToneChange(tone)}
+              className={`border-2 border-slate-900 rounded-xl px-4 py-2 text-xs font-bold capitalize transition-all font-['Work_Sans'] ${
+                selectedTone === tone
+                  ? 'bg-[#FF5722] text-white neo-shadow-sm translate-y-0.5'
+                  : 'bg-white text-slate-700 hover:bg-slate-50'
               }`}
-              style={{ animationDelay: `${index * 100}ms` }}
             >
-              {/* Stars */}
-              <div className="flex items-center gap-1 mb-3">
-                {[...Array(5)].map((_, s) => (
-                  <Star
-                    key={s}
-                    className={`w-5 h-5 star-animate ${s < review.rating ? 'text-[#FFD54F] fill-[#FFD54F]' : 'text-slate-200'}`}
-                    strokeWidth={2}
-                    style={{ animationDelay: `${s * 80}ms` }}
-                  />
-                ))}
-              </div>
+              {tone}
+            </button>
+          ))}
+        </div>
+
+        {fetchingReviews ? (
+          <div className="flex flex-col items-center justify-center py-16">
+            <div className="w-8 h-8 border-4 border-[#FF5722] border-t-transparent rounded-full animate-spin mb-4" />
+            <p className="text-sm text-slate-500 font-['Work_Sans']">Generating reviews...</p>
+          </div>
+        ) : (
+          <div className="space-y-4">
+            {place.reviews?.map((review, index) => (
+              <div
+                key={index}
+                data-testid={`review-card-${index}`}
+                onClick={() => handleCopyAndRedirect(review, index)}
+                className={`bg-white border-2 rounded-2xl p-5 cursor-pointer transition-all ${
+                  copiedIndex === index
+                    ? 'border-[#064E3B] bg-[#A7F3D0] copy-pulse neo-shadow-sm'
+                    : 'border-slate-900 neo-shadow hover:-translate-y-1'
+                }`}
+                style={{ animationDelay: `${index * 100}ms` }}
+              >
+                {/* Stars */}
+                <div className="flex items-center gap-1 mb-3">
+                  {[...Array(5)].map((_, s) => (
+                    <Star
+                      key={s}
+                      className={`w-5 h-5 star-animate ${s < review.rating ? 'text-[#FFD54F] fill-[#FFD54F]' : 'text-slate-200'}`}
+                      strokeWidth={2}
+                      style={{ animationDelay: `${s * 80}ms` }}
+                    />
+                  ))}
+                </div>
 
               {/* Review text */}
               <p className="text-slate-700 font-['Work_Sans'] text-base leading-relaxed mb-4">{review.text}</p>

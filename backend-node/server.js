@@ -265,9 +265,10 @@ app.get("/api/public/place/:slug", async (req, res) => {
     if (rows.length === 0) return res.status(404).json({ error: "Not found" });
 
     const placeData = rows[0];
+    const selectedTone = req.query.tone || placeData.tone || 'casual';
 
     // Generate fresh reviews on every single scan so the user always gets new ones
-    const freshReviews = await generateReviews(placeData.name, placeData.category, placeData.tone);
+    const freshReviews = await generateReviews(placeData.name, placeData.category, selectedTone);
 
     // Increment scans
     const newScans = (placeData.total_scans || 0) + 1;
