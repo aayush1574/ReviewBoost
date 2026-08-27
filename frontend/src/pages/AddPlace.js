@@ -18,6 +18,17 @@ const PLACEHOLDER_IMAGES = {
   clothes: "https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?q=80&w=600&auto=format&fit=crop",
   salon: "https://images.unsplash.com/photo-1560066984-138dadb4c035?q=80&w=600&auto=format&fit=crop",
   store: "https://images.unsplash.com/photo-1578916171728-46686eac8d58?q=80&w=600&auto=format&fit=crop",
+  hospital: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=600&auto=format&fit=crop",
+  nail_salon: "https://images.unsplash.com/photo-1604654894610-df63bc536371?q=80&w=600&auto=format&fit=crop",
+  service: "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=600&auto=format&fit=crop",
+  gym: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=600&auto=format&fit=crop",
+  real_estate: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=600&auto=format&fit=crop",
+  education: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=600&auto=format&fit=crop",
+  event_planner: "https://images.unsplash.com/photo-1511578314322-379afb476865?q=80&w=600&auto=format&fit=crop",
+  ecommerce: "https://images.unsplash.com/photo-1563013544-824ae1d704d3?q=80&w=600&auto=format&fit=crop",
+  marketing: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=600&auto=format&fit=crop",
+  corporate: "https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=600&auto=format&fit=crop",
+  freelance: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=600&auto=format&fit=crop",
   other: "https://images.unsplash.com/photo-1521791136364-7986c2953e15?q=80&w=600&auto=format&fit=crop",
 };
 
@@ -129,14 +140,25 @@ export default function AddPlace() {
                   <SelectValue />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="hotel">Hotel</SelectItem>
-                  <SelectItem value="restaurant">Restaurant</SelectItem>
-                  <SelectItem value="cafe">Cafe</SelectItem>
+                  <SelectItem value="salon">Salons & Spas</SelectItem>
+                  <SelectItem value="restaurant">Restaurants</SelectItem>
+                  <SelectItem value="cafe">Cafes</SelectItem>
+                  <SelectItem value="hotel">Hotels & Resorts</SelectItem>
+                  <SelectItem value="hospital">Hospitals & Clinics</SelectItem>
+                  <SelectItem value="nail_salon">Nail Art Studios</SelectItem>
+                  <SelectItem value="service">Service Providers</SelectItem>
+                  <SelectItem value="store">Retail Stores</SelectItem>
                   <SelectItem value="grocery">Grocery Store</SelectItem>
                   <SelectItem value="clothes">Clothing Boutique</SelectItem>
-                  <SelectItem value="salon">Salon & Spa</SelectItem>
-                  <SelectItem value="store">General Retail Store</SelectItem>
-                  <SelectItem value="other">Other / Service Business</SelectItem>
+                  <SelectItem value="gym">Gyms & Fitness Centers</SelectItem>
+                  <SelectItem value="real_estate">Real Estate Agencies</SelectItem>
+                  <SelectItem value="education">Educational Institutions</SelectItem>
+                  <SelectItem value="event_planner">Event Planners</SelectItem>
+                  <SelectItem value="ecommerce">E-commerce Sellers</SelectItem>
+                  <SelectItem value="marketing">Marketers</SelectItem>
+                  <SelectItem value="corporate">Corporate Offices</SelectItem>
+                  <SelectItem value="freelance">Freelancers & Small Business Owners</SelectItem>
+                  <SelectItem value="other">Other / General</SelectItem>
                 </SelectContent>
               </Select>
             </div>
