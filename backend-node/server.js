@@ -37,15 +37,16 @@ app.use("/uploads", express.static(uploadDir));
 
 const REVIEW_TEMPLATES = require("./templates");
 
-async function generateReviews(name, category, tone) {
+async function generateReviews(name, category, tone, requestedRating) {
   const normTone = tone ? tone.toLowerCase().trim() : 'casual';
   const normCategory = category ? category.toLowerCase().trim() : 'other';
+  const targetRating = requestedRating ? parseInt(requestedRating) : 5;
 
   if (process.env.GEMINI_API_KEY) {
     try {
       const prompt = `Generate 3 distinct, high-quality Google reviews for a ${category} named "${name}". 
-      The reviews should have a ${tone} tone.
-      Output them as a JSON array of objects with "rating" (number, mostly 5) and "text" (string). Only output valid JSON.`;
+      The reviews should have a ${tone} tone and a star rating of exactly ${targetRating} out of 5.
+      Output them as a JSON array of objects with "rating" (number, equal to ${targetRating}) and "text" (string). Only output valid JSON.`;
 
       const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${process.env.GEMINI_API_KEY}`, {
         method: "POST",
@@ -66,12 +67,19 @@ async function generateReviews(name, category, tone) {
   }
 
   const catTemplates = REVIEW_TEMPLATES[normCategory] || REVIEW_TEMPLATES.other;
-  const templates = catTemplates[normTone] || catTemplates.casual || REVIEW_TEMPLATES.other.casual;
+  
+  let templates;
+  if (targetRating <= 3) {
+    templates = catTemplates.critical || REVIEW_TEMPLATES.other.critical || catTemplates.casual;
+  } else {
+    templates = catTemplates[normTone] || catTemplates.casual || REVIEW_TEMPLATES.other.casual;
+  }
+
   const shuffled = [...templates].sort(() => 0.5 - Math.random());
   const selected = shuffled.slice(0, 3);
 
   return selected.map(template => ({
-    rating: Math.random() > 0.3 ? 5 : 4,
+    rating: targetRating,
     text: template.replace(/{name}/g, name)
   }));
 }
@@ -266,9 +274,10 @@ app.get("/api/public/place/:slug", async (req, res) => {
 
     const placeData = rows[0];
     const selectedTone = req.query.tone || placeData.tone || 'casual';
+    const selectedRating = req.query.rating || 5;
 
     // Generate fresh reviews on every single scan so the user always gets new ones
-    const freshReviews = await generateReviews(placeData.name, placeData.category, selectedTone);
+    const freshReviews = await generateReviews(placeData.name, placeData.category, selectedTone, selectedRating);
 
     // Increment scans
     const newScans = (placeData.total_scans || 0) + 1;

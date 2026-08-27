@@ -11,13 +11,17 @@ export default function ReviewPage() {
   const [loading, setLoading] = useState(true);
   const [fetchingReviews, setFetchingReviews] = useState(false);
   const [selectedTone, setSelectedTone] = useState('');
+  const [selectedRating, setSelectedRating] = useState(5);
   const [copiedIndex, setCopiedIndex] = useState(null);
   const [error, setError] = useState('');
 
   useEffect(() => {
     const fetchPlace = async () => {
       try {
-        const url = selectedTone ? `${API}/public/place/${slug}?tone=${selectedTone}` : `${API}/public/place/${slug}`;
+        let url = `${API}/public/place/${slug}?rating=${selectedRating}`;
+        if (selectedTone) {
+          url += `&tone=${selectedTone}`;
+        }
         const { data } = await axios.get(url);
         setPlace(data);
         if (!selectedTone) {
@@ -30,7 +34,7 @@ export default function ReviewPage() {
       setFetchingReviews(false);
     };
     fetchPlace();
-  }, [slug, selectedTone]);
+  }, [slug, selectedTone, selectedRating]);
 
   const handleToneChange = (tone) => {
     if (tone === selectedTone) return;
@@ -120,8 +124,36 @@ export default function ReviewPage() {
       {/* Reviews Section */}
       <div className="px-4 py-4">
         <p className="text-sm text-slate-500 font-['Work_Sans'] mb-4 text-center">
-          Tap a review to copy it, then post it on Google
+          Choose a rating and tone below, then tap a review to copy and post it!
         </p>
+
+        {/* Rating Selector */}
+        <div className="flex flex-col items-center gap-2 mb-6">
+          <div className="flex gap-2">
+            {[1, 2, 3, 4, 5].map((star) => (
+              <button
+                key={star}
+                type="button"
+                onClick={() => {
+                  if (star === selectedRating) return;
+                  setFetchingReviews(true);
+                  setCopiedIndex(null);
+                  setSelectedRating(star);
+                }}
+                className="transition-transform active:scale-95"
+              >
+                <Star
+                  className={`w-8 h-8 ${
+                    star <= selectedRating
+                      ? 'text-[#FFD54F] fill-[#FFD54F]'
+                      : 'text-slate-200 fill-slate-200'
+                  } stroke-slate-900`}
+                  strokeWidth={2}
+                />
+              </button>
+            ))}
+          </div>
+        </div>
 
         {/* Tone Selector */}
         <div className="flex gap-2 mb-6 justify-center">

@@ -36,6 +36,13 @@ const REVIEW_TEMPLATES = {
       "An absolute flavor explosion! {name} is a masterpiece of a restaurant. Every bite was pure bliss, and the cocktails were masterfully crafted!",
       "Oh my god, the cheese sauce here is absolutely legendary! {name} is a total game-changer. I am recommending it to literally everyone I know! 🧀🔥",
       "I am completely blown away! {name} serves the most delicious, mouth-watering dishes I have ever tasted! The energy here is so fun and vibrant!"
+    ],
+    critical: [
+      "Disappointing dining experience at {name}. The service was extremely slow, and the food was cold by the time it was served. Very underwhelming.",
+      "I had high expectations for {name}, but the meal was average at best. The pricing felt way too high for the quality of food and service we received.",
+      "The service at {name} was lacking today. We had to wait over 45 minutes for our entrees, and the staff was rather inattentive. Room for improvement.",
+      "Average quality and limited options. {name} has a decent atmosphere, but the main courses lacked seasoning and flavor.",
+      "Unfortunately, my visit to {name} was not pleasant. The tables were crowded, the noise level was too high, and the dessert tasted stale."
     ]
   },
   hotel: {
@@ -74,6 +81,13 @@ const REVIEW_TEMPLATES = {
       "Phenomenal hotel! {name} is a total gem. The staff was incredibly welcoming, the rooms were super modern, and the rooftop view was unforgettable!",
       "I am absolutely blown away by {name}!! The service is insanely fast, the beds are like clouds, and the views are just gorgeous! Best trip ever! 🎉🏨",
       "Simply outstanding! {name} has the best staff, the coolest design, and the location is perfect! I am already planning my next trip back here! ❤️"
+    ],
+    critical: [
+      "Disappointing stay at {name}. The room was not properly cleaned, the Wi-Fi was slow and unstable, and the front desk staff was rather unhelpful.",
+      "My experience at {name} was far from satisfactory. The room was noisy due to street traffic, the air conditioning was loud, and the breakfast options were cold.",
+      "Not worth the price. {name} has a decent lobby, but the rooms are outdated and the bathroom had plumbing issues. Housekeeping was also slow to respond.",
+      "Average accommodations. {name} is fine for a quick overnight stay, but the service was lackluster and the pool area was closed for maintenance.",
+      "Very disappointed with the service at {name}. Check-in took over 30 minutes, our reservation was initially misplaced, and the room felt cramped."
     ]
   },
   cafe: {
@@ -112,6 +126,13 @@ const REVIEW_TEMPLATES = {
       "I could spend all day at {name}! The pastries are baked to perfection and the iced drinks are refreshing and delicious! ☕🎉",
       "THE BEST CHAI LATTES ON EARTH! {name} has won my heart completely! The vibes are so good and the staff is so friendly! 😍✨",
       "Oh my god, you have to try the avocado toast here! {name} is doing something incredible. Super fast service and amazing energy! 🥑🔥"
+    ],
+    critical: [
+      "The coffee at {name} was burnt and bitter. The service was extremely slow, and the barista seemed rather rude. Won't be returning.",
+      "Disappointing visit to {name}. The seating is very cramped, the Wi-Fi was not working, and the pastries tasted stale.",
+      "Average coffee and overpriced. {name} has a nice interior, but the service was lackluster and it took 20 minutes just to get a simple latte.",
+      "Not the best spot to work. The background music at {name} was way too loud, and they don't have enough power outlets.",
+      "Unfortunately, my experience at {name} was poor. The tables were dirty, the staff was unorganized, and my order was incorrect."
     ]
   },
   salon: {
@@ -150,6 +171,13 @@ const REVIEW_TEMPLATES = {
       "Unbelievable results! {name} exceeded all my expectations. The staff is incredibly knowledgeable and they make the experience so special! 😍",
       "THE SHAMPOO MASSAGE WAS HEAVEN! I am absolutely in love with {name}! The staff is so sweet and the salon is beautiful! 💆‍♀️✨",
       "Oh my god, the nail art here is to die for! {name} has the absolute best selection and the coolest stylists! 💅🔥"
+    ],
+    critical: [
+      "Poor haircut experience at {name}. The stylist did not listen to what I wanted and cut it way too short. Unprofessional service.",
+      "I went to {name} for a hair coloring and it turned out completely uneven. The staff was dismissive when I brought it up. Very disappointed.",
+      "Not worth the price. The salon was messy, the towels did not smell fresh, and my appointment started 25 minutes late.",
+      "Average styling and subpar customer care. {name} charges premium prices but does not deliver premium service. The environment is noisy.",
+      "Very disappointed with my nail service at {name}. The polish started chipping the next day and the technician was in a rush."
     ]
   },
   hospital: {
@@ -188,6 +216,13 @@ const REVIEW_TEMPLATES = {
       "Absolute gold standard! {name} is pristine, high-tech, and has the most energetic and supportive staff on earth! 🔥🏥",
       "I am in love with the pediatric department at {name}! They were so sweet with my kids and made them feel completely safe! 👶❤️",
       "Incredible experience! The doctors at {name} are so knowledgeable and their bedside manner is absolutely stellar! 🌟🎉"
+    ],
+    critical: [
+      "Extremely long wait times at {name}. The administrative staff was unhelpful, and the billing department made multiple errors on our statement.",
+      "The clinical service at {name} was disappointing. The doctor spent less than three minutes with me and dismissed my concerns.",
+      "Poor communication and unorganized facilities. The appointment system at {name} is highly inefficient, leading to massive delays.",
+      "The patient rooms at {name} were not properly maintained, and the nursing staff was slow to respond to calls. Needs improvement.",
+      "Unsatisfactory medical consultation at {name}. The staff was uncoordinated and the clinic felt chaotic."
     ]
   },
   nail_salon: {
@@ -222,10 +257,17 @@ const REVIEW_TEMPLATES = {
       "I feel like a queen! {name} has the most beautiful studio, the friendliest staff, and my nails look absolutely spectacular! ⭐⭐⭐⭐⭐",
       "Simply phenomenal! The gel polish at {name} lasts forever and the nail art is so creative! Love, love, love it! ❤️💅",
       "Absolute perfection! The pedicures at {name} are pure bliss, and the vibes are so relaxing and fun! 🌟💖",
-      "If you want gorgeous nail art, you must visit {name}! The team is incredibly talented and so sweet! 😍✨",
+      "If you want to gorgeous nail art, you must visit {name}! The team is incredibly talented and so sweet! 😍✨",
       "Wow! My nails have never looked this beautiful. {name} is a total gem of a salon. Highly, highly recommended! 💎🔥",
       "I am in love with this place! {name} has the coolest nail designs, great music, and the friendliest staff! 💅🎉",
       "An absolute masterpiece! The team at {name} is so detailed and creative. My nails look like a work of art! 🌟🚀"
+    ],
+    critical: [
+      "Very poor service at {name}. The technician rushed through my manicure and cut one of my cuticles, which bled. Ouch.",
+      "Disappointing gel manicure. The polish began lifting and chipping within 48 hours of leaving the salon. Waste of money.",
+      "The salon at {name} was messy and the pedicure tubs did not look properly sanitized. The staff was rather unfriendly.",
+      "Overpriced for simple work. The nail shaping at {name} was uneven and the technician did not do the design I requested.",
+      "Poor client scheduling. I had an appointment but was made to wait 30 minutes, and the manicure was rushed."
     ]
   },
   service: {
@@ -264,6 +306,13 @@ const REVIEW_TEMPLATES = {
       "Absolutely brilliant! {name} did an amazing job and their customer support is the friendliest I've ever encountered! 10/10! 🔥🌟",
       "THE BEST CUSTOMER EXPERIENCE OF MY LIFE! I am absolutely in love with {name}! The staff is so sweet and the results are beautiful! 😍✨",
       "Oh my god, the quality here is to die for! {name} has the absolute best team and the coolest support channels! 🛠️🔥"
+    ],
+    critical: [
+      "Poor service quality from {name}. The technician arrived late, did not finish the job properly, and left a mess behind. Highly disappointed.",
+      "Unreliable communication and uncompleted work. {name} promised to resolve our issue but has been ignoring our emails for a week.",
+      "Overpriced and unprofessional. The pricing was much higher than quoted, and the technician was extremely dismissive of our requests.",
+      "Subpar results. The work done by {name} failed within a week, and they refused to honor their service warranty.",
+      "Very unorganized team. It took three visits from {name} to fix a simple issue, wasting a massive amount of our time."
     ]
   },
   store: {
@@ -302,6 +351,13 @@ const REVIEW_TEMPLATES = {
       "Everything about {name} is perfect! The layout, the staff, the products - I always leave with a smile and great purchases! 🎉😍",
       "THE COOLEST GIFTS EVER! I am absolutely in love with {name}! The staff is so sweet and the store is beautiful! 😍✨",
       "Oh my god, the items here are to die for! {name} has the absolute best selection and the coolest vibes! 🎁🔥"
+    ],
+    critical: [
+      "Very poor customer service at {name}. The staff ignored me when I asked for assistance, and the checkout line was incredibly long.",
+      "Disappointing product selection. Many of the shelves at {name} were empty, and the items in stock were overpriced.",
+      "Not a pleasant shopping experience. The store was unorganized, items were placed in incorrect sections, and the floor was dirty.",
+      "Overpriced and subpar quality. The item I purchased from {name} broke within two days, and they refused to issue a refund.",
+      "Unhelpful store associates. Nobody knew where specific items were located, and the checkout clerk was rather rude."
     ]
   },
   grocery: {
@@ -340,6 +396,13 @@ const REVIEW_TEMPLATES = {
       "Absolutely top-tier! {name} is clean, well-stocked, and has a fantastic selection of specialty health foods. My go-to store forever! 🛒🔥",
       "THE BAKERY AT {name} IS HEAVEN! The warm croissants are out of this world and the staff is so friendly! 🥐😍",
       "Oh my god, you have to try the freshly squeezed orange juice here! {name} has the best selection and the nicest cashiers! 🍊🔥"
+    ],
+    critical: [
+      "The produce at {name} was mostly bruised and overpriced. The checkout lines were extremely long, and only two registers were open.",
+      "Poor inventory management. {name} is constantly out of basic grocery items, and the dairy section had expired milk on the shelves.",
+      "Not a clean store. The aisles at {name} were cluttered, the meat counter smelled off, and the staff was unhelpful.",
+      "Overpriced organics. The specialty items at {name} cost double compared to other stores, and the quality is rather mediocre.",
+      "Disappointing customer service. The cashiers at {name} were indifferent and did not bag my items properly."
     ]
   },
   clothes: {
@@ -378,6 +441,13 @@ const REVIEW_TEMPLATES = {
       "A fashion lover's paradise! {name} is packed with beautiful, high-quality pieces. The shopping experience is always an absolute joy! 🛍️🔥",
       "THE COZIEST SWEATERS EVER! I am absolutely in love with {name}! The staff is so sweet and the store is beautiful! 😍✨",
       "Oh my god, the accessories here are to die for! {name} has the absolute best selection and the coolest vibes! 💍🔥"
+    ],
+    critical: [
+      "Poor selection and cheap fabrics. The items at {name} looked nothing like the pictures online and felt low-quality. Overpriced.",
+      "Disappointing customer service. The sales associates at {name} were following me around the store, making me feel very uncomfortable.",
+      "The clothing sizes at {name} are very inconsistent, and they have a terrible return policy. Store credit only, which is frustrating.",
+      "Outdated styles and unorganized racks. The store was messy, and finding a simple basic item was nearly impossible.",
+      "The fitting rooms at {name} were dirty and did not have proper mirrors. Checkout took 15 minutes due to system errors."
     ]
   },
   gym: {
@@ -416,6 +486,13 @@ const REVIEW_TEMPLATES = {
       "Absolute gold standard for fitness! {name} is pristine, packed with premium gear, and the trainers are true professionals! 💪❤️",
       "I am in love with the steam room and sauna at {name}! Perfect recovery after a brutal workout! Best gym ever! 🌟",
       "Incredible atmosphere! The trainers at {name} are so encouraging and their passion for fitness is totally contagious! 🎉🏋️‍♂️"
+    ],
+    critical: [
+      "Many of the cardio machines at {name} are broken and have 'out of order' signs for weeks. The locker rooms smell like mold.",
+      "Extremely crowded during peak hours, and the gym staff does not enforce wiping down equipment. Very unhygienic environment.",
+      "The membership cancellation process at {name} is a complete scam. They keep charging your card even after cancellation.",
+      "Lackluster facilities. The air conditioning was broken during summer, making workouts unbearable, and the staff was indifferent.",
+      "Unfriendly trainers and unhelpful front desk. {name} has high rates but the amenities are outdated and poorly maintained."
     ]
   },
   real_estate: {
@@ -451,9 +528,16 @@ const REVIEW_TEMPLATES = {
       "Simply spectacular service! {name} has the friendliest team, the best listings, and they treat you like absolute royalty! ❤️🏡",
       "Wow! {name} completely crushed our expectations. Incredible support, fast communication, and they saved us so much money! 💰🌟",
       "If you're buying or selling a home, go to {name} immediately! The team is so talented, high-energy, and sweet! 😍✨",
-      "Absolute gold standard for real estate! {name} is professional, highly responsive, and they truly care about their clients! 🌟💖",
+      "Absolute gold standard for real estate! {name} is professional, highly responsive, and they truly care about their clients! 🌟❤️",
       "I am in love with our new place! {name} listened to exactly what we wanted and delivered a total masterpiece! 🏡❤️",
       "Incredible experience! The brokers at {name} are so knowledgeable and their passion for finding the perfect home is amazing! 🎉🚀"
+    ],
+    critical: [
+      "Poor communication and slow service from {name}. The agents rarely return calls, and they missed several viewing appointments.",
+      "The agents at {name} were pushy and did not respect our budget limits. They kept trying to show us overpriced properties.",
+      "Unprofessional transaction management. There were several errors in our lease agreement prepared by {name}, which delayed our move.",
+      "Disappointing listing information. The properties shown by {name} did not match the descriptions or photos online. Misleading.",
+      "Had a terrible experience selling with {name}. The marketing was subpar, and we received zero updates for weeks."
     ]
   },
   education: {
@@ -492,6 +576,13 @@ const REVIEW_TEMPLATES = {
       "Absolute gold standard for education! {name} is pristine, high-tech, and has the most energetic and supportive team on earth! 🔥🎓",
       "I am in love with the music and art programs at {name}! So creative and fun! Highly, highly recommend! 🎨❤️",
       "Incredible experience! The workshops at {name} are so engaging and the team's passion for teaching is totally contagious! 🎉🚀"
+    ],
+    critical: [
+      "Disappointing academic quality at {name}. The curriculum is outdated, and the classrooms are overcrowded and poorly equipped.",
+      "Lacking student support. The administration at {name} is unorganized, and they are slow to respond to parent and student concerns.",
+      "Subpar instruction. The tutors at {name} seemed unprepared for lessons and lacked patience with students. Needs improvement.",
+      "Poor school facilities. The computer lab was outdated, the library had limited resources, and the building maintenance was neglected.",
+      "Unsatisfactory registration process at {name}. The admin staff was uncoordinated and communication was highly unhelpful."
     ]
   },
   event_planner: {
@@ -530,6 +621,13 @@ const REVIEW_TEMPLATES = {
       "Absolute gold standard for event planning! {name} is professional, highly responsive, and they truly care about their clients! 🌟❤️",
       "I am in love with the venue design! {name} took our simple ideas and turned them into a total masterpiece! 🎉🏡",
       "Incredible experience! The planners at {name} are so detailed and their passion for creating beautiful events is amazing! 🎉🚀"
+    ],
+    critical: [
+      "Disorganized event coordination by {name}. The catering was delayed, the layout did not match our plans, and the staff was uncoordinated.",
+      "Poor communication and hidden charges. {name} exceeded our budget significantly and failed to inform us of extra vendor fees.",
+      "Subpar setup. The decorations by {name} looked cheap and unfinished, and the sound system had technical issues during the event.",
+      "Very disappointed with the wedding planning through {name}. The coordinator was hard to reach and key details were forgotten.",
+      "Unprofessional event execution. The team at {name} was unhelpful and seemed overwhelmed by the size of the gathering."
     ]
   },
   ecommerce: {
@@ -568,6 +666,13 @@ const REVIEW_TEMPLATES = {
       "Wow! My order arrived in just two days. {name} is a total gem of an online retailer. Highly, highly recommended! 💎🔥",
       "I am in love with this brand! {name} has the coolest products, great social media support, and the friendliest staff! 🛍️🎉",
       "An absolute masterpiece of a shopping experience! The checkout at {name} was so simple and the delivery was perfect! 🌟🚀"
+    ],
+    critical: [
+      "The item I ordered from {name} arrived damaged due to poor packaging. Customer support took five days to reply and refused a free return.",
+      "Extremely slow shipping. It took three weeks for my order from {name} to arrive, and the tracking information was never updated.",
+      "Subpar product quality. The item was made of cheap plastic and did not match the product description on the website at all.",
+      "Terrible return process. {name} charging restock fees and return shipping fees is highly unfair for defective items.",
+      "Unreliable digital store. My order was canceled without explanation, and getting my refund took over a week of emails."
     ]
   },
   marketing: {
@@ -606,6 +711,13 @@ const REVIEW_TEMPLATES = {
       "Absolute gold standard for digital marketing! {name} is professional, highly responsive, and they truly care about their clients! 🌟❤️",
       "I am in love with our new website and ads! {name} took our simple ideas and turned them into a total masterpiece! 🎨💻",
       "Incredible experience! The marketers at {name} are so detailed and their passion for creating beautiful campaigns is amazing! 🎉🚀"
+    ],
+    critical: [
+      "Subpar performance and lack of communication from {name}. Our ad spend was wasted with zero conversion results and no report explanation.",
+      "The creative assets delivered by {name} were of poor quality and did not match our brand guidelines at all. Very disappointed.",
+      "Unreliable campaign management. The launch dates were missed repeatedly by {name}, leading to lost sales during our key season.",
+      "Overpriced marketing services. We paid a premium fee, but the execution felt rushed and the communication was unorganized.",
+      "Unsatisfactory consultation. The team at {name} was unprepared and proposed a generic strategy with no market research."
     ]
   },
   corporate: {
@@ -644,6 +756,13 @@ const REVIEW_TEMPLATES = {
       "Absolute gold standard for corporate relations! {name} is professional, highly responsive, and they truly care about their partners! 🌟❤️",
       "I am in love with the new meeting setup! {name} took our requirements and turned them into a total masterpiece! 💼💻",
       "Incredible experience! The support team at {name} is so detailed and their passion for client success is amazing! 🎉🚀"
+    ],
+    critical: [
+      "Unorganized corporate operations at {name}. Client onboarding took weeks due to internal paperwork delays and poor coordination.",
+      "Lacking professional communication. The administration at {name} is highly unresponsive, ignoring direct emails for days.",
+      "Subpar client services. The team at {name} was unprepared for our project review and presented a generic report.",
+      "Overpriced enterprise solutions. We paid a premium rate, but the execution was slow and uncoordinated.",
+      "Unsatisfactory consulting experience. The advisors at {name} had minimal knowledge of our industry regulations."
     ]
   },
   freelance: {
@@ -682,6 +801,13 @@ const REVIEW_TEMPLATES = {
       "Absolutely brilliant! {name} did an amazing job and their communication is the friendliest I've ever encountered! 10/10! 🔥🌟",
       "THE BEST FREELANCE EXPERIENCE OF MY LIFE! I am absolutely in love with the design from {name}! Highly recommended! 😍✨",
       "Oh my god, the quality of work is to die for! {name} has the absolute best style and the coolest ideas! 🎨🔥"
+    ],
+    critical: [
+      "Extremely disappointed with {name}. The project was delivered two weeks late, and communication during the wait was nonexistent.",
+      "Poor quality of deliverables. The work from {name} did not follow the guidelines provided and required multiple revisions.",
+      "Unprofessional contract work. {name} stopped responding mid-project and missed several critical deadlines. Cannot recommend.",
+      "Overpriced for basic work. The final output from {name} was very simplistic and did not justify the premium rate charged.",
+      "Unsatisfactory technical skills. The deliverables had many errors that we had to fix ourselves. Very frustrating."
     ]
   },
   other: {
@@ -720,6 +846,13 @@ const REVIEW_TEMPLATES = {
       "Absolutely brilliant! {name} did an amazing job and their customer support is the friendliest I've ever encountered! 10/10! 🔥🌟",
       "THE BEST CUSTOMER EXPERIENCE OF MY LIFE! I am absolutely in love with {name}! The staff is so sweet and the results are beautiful! 😍✨",
       "Oh my god, the quality here is to die for! {name} has the absolute best team and the coolest support channels! 🛠️🔥"
+    ],
+    critical: [
+      "Disappointing service from {name}. The team arrived late, did not complete the tasks as agreed, and the pricing was higher than quoted.",
+      "Unreliable communication and subpar results. {name} made several mistakes and refused to fix them without extra charges.",
+      "Not professional. The staff at {name} was dismissive of our requests and did a rushed job. Cannot recommend.",
+      "Overpriced for simple tasks. We paid a premium fee, but the execution was lacking and client support was unorganized.",
+      "Unsatisfactory experience. The team at {name} was uncoordinated, causing multiple delays and errors throughout the project."
     ]
   }
 };
